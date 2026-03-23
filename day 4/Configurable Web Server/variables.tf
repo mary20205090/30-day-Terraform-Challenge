@@ -33,3 +33,15 @@ variable "allowed_cidr_blocks" {
   type        = list(string)
   default     = ["0.0.0.0/0"]
 }
+
+variable "ami_name_pattern" {
+  description = "AMI name pattern used to look up the operating system image"
+  type        = string
+  default     = "ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"
+}
+
+variable "ami_owner" {
+  description = "AWS account ID that owns the AMI"
+  type        = string
+  default     = "099720109477"
+}

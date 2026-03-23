@@ -1,3 +1,5 @@
+# Configure the AWS provider with a variable so the same code can run in
+# different regions without editing the resource blocks below.
 provider "aws" {
   region = var.region
 }
@@ -17,19 +19,21 @@ data "aws_subnets" "default" {
   }
 }
 
-# Look up a current Ubuntu AMI so the web server does not depend on a
-# region-specific hardcoded AMI ID.
+# Look up the AMI dynamically, but drive the search criteria with variables
+# so the deployment remains configurable.
 data "aws_ami" "ubuntu" {
   most_recent = true
 
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"]
+    values = [var.ami_name_pattern]
   }
 
-  owners = ["099720109477"]
+  owners = [var.ami_owner]
 }
 
+# This security group is the network gate in front of the EC2 instance.
+# It allows inbound traffic only on the port we configured with variables.
 resource "aws_security_group" "web_sg" {
   name        = "${var.environment}-web-sg"
   description = "Allow web traffic to the configurable web server"
@@ -58,13 +62,20 @@ resource "aws_security_group" "web_sg" {
   }
 }
 
+# This EC2 instance is the actual single web server for the lab.
+# The important idea is that the key settings come from variables:
+# region, instance type, port, and environment-related naming.
 resource "aws_instance" "web_server" {
   ami                         = data.aws_ami.ubuntu.id
   instance_type               = var.instance_type
+  # The instance is launched into the first subnet returned from the default
+  # VPC so we do not need to build custom networking for this exercise.
   subnet_id                   = data.aws_subnets.default.ids[0]
   vpc_security_group_ids      = [aws_security_group.web_sg.id]
   associate_public_ip_address = true
 
+  # user_data runs when the instance boots. It installs Python, writes a
+  # simple HTML page, and starts a tiny HTTP server on var.server_port.
   user_data = <<-EOF
               #!/bin/bash
               set -e
@@ -95,6 +106,8 @@ resource "aws_instance" "web_server" {
   }
 }
 
+# Outputs make it easier to test the lab after apply without digging through
+# the AWS Console for the instance address.
 output "public_ip" {
   description = "Public IP address of the configurable web server"
   value       = aws_instance.web_server.public_ip
