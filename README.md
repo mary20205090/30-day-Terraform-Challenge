@@ -15,6 +15,7 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 | Day 03 | Deploying Your First Infrastructure | ✅ Completed | [Read](#day-03) |
 | Day 04 | Mastering Basic Infrastructure | ✅ Completed | [Read](#day-04) |
 | Day 05 | Coming Up Next | 🚧 In Progress | - |
+| Day 06 | Coming Up Next | ⏳ | - |
 
 ---
 
