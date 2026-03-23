@@ -2,6 +2,12 @@
 
 This lab refactors a simple EC2 web server so the deployment is driven by input variables instead of hardcoded values.
 
+## Outcome
+
+This lab was successfully deployed and tested in AWS.
+
+The EC2 instance launched correctly, the startup script ran, and the web page was reachable in the browser on the configured application port.
+
 ## What This Lab Covers
 
 - Configure the AWS provider with a variable-driven region
@@ -48,6 +54,17 @@ This lab creates or manages:
 
 - 1 security group
 - 1 EC2 instance
+
+## What Was Configurable
+
+The final deployment used variables to control:
+
+- AWS region
+- EC2 instance type
+- application port
+- server name
+- environment label
+- AMI lookup settings
 
 ## Why Input Variables Matter
 
@@ -113,14 +130,34 @@ After a successful apply, check:
 - `EC2 > Instances`
 - `EC2 > Instances` public DNS or public IP
 
+## Browser Verification
+
+After `terraform apply`, the server was successfully reached in the browser using the EC2 public DNS name and the configured port:
+
+```text
+http://<public-dns>:8080
+```
+
+The page displayed:
+
+- server name
+- environment
+- region
+- server port
+
 ## Key Takeaways
 
 - `resource` creates or manages infrastructure
 - `variable` defines configurable input values
 - `var.<name>` is how Terraform reads input variables
 - Input variables help avoid hardcoding values
+- `user_data` can configure the server automatically during instance boot
 - `terraform plan` helps review changes before applying
 - `terraform destroy` is important for cleanup, especially on Free Tier
+
+## Reflection
+
+This lab made the difference between a static Terraform configuration and a reusable one much clearer. Instead of rewriting resource blocks, the infrastructure behavior changed through input variables.
 
 ## Cleanup Reminder
 

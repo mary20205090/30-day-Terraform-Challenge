@@ -2,6 +2,12 @@
 
 This lab extends the single configurable web server into a clustered architecture using an Application Load Balancer and an Auto Scaling Group.
 
+## Outcome
+
+This lab was successfully deployed, tested through the ALB DNS name, and then destroyed after verification.
+
+The clustered deployment worked as expected: traffic reached the Application Load Balancer, which forwarded requests to EC2 instances managed by the Auto Scaling Group.
+
 ## What This Lab Covers
 
 - Use input variables to configure a clustered deployment
@@ -27,6 +33,22 @@ This lab extends the single configurable web server into a clustered architectur
 - `data "aws_availability_zones" "all"`
 - `data "aws_ami" "ubuntu"`
 
+## Architecture Summary
+
+This deployment used the following request flow:
+
+```text
+Browser -> Application Load Balancer -> Target Group -> EC2 instances in Auto Scaling Group
+```
+
+Each component had a distinct role:
+
+- the ALB received public traffic
+- the listener forwarded traffic to the target group
+- the target group tracked healthy EC2 instances
+- the launch template defined how instances should be created
+- the Auto Scaling Group maintained the desired number of instances
+
 ## Outputs
 
 - `alb_dns_name`
@@ -45,3 +67,27 @@ terraform destroy
 ## Verification
 
 After `terraform apply`, open the ALB DNS name shown in the outputs and confirm the page loads through the load balancer.
+
+In this lab, the browser test succeeded and the page showed:
+
+- cluster name
+- environment
+- region
+- confirmation that traffic was being served by an Auto Scaling Group behind an ALB
+
+## Key Takeaways
+
+- a single-server deployment is simpler but less resilient
+- an ALB provides one public entry point for multiple application instances
+- an Auto Scaling Group manages instance count and replacement
+- a launch template acts as the blueprint for ASG instances
+- availability zones can be queried dynamically with a Terraform data source
+- clustered infrastructure is closer to real production architecture than a single VM
+
+## Cleanup Reminder
+
+Because the ALB and Auto Scaling Group can cost more than the single-instance lab, this environment should be destroyed as soon as verification is complete:
+
+```bash
+terraform destroy
+```
