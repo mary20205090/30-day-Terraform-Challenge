@@ -13,8 +13,8 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 | Day 01 | Introduction to Terraform and IaC | ✅ Completed | [Read](#day-01) |
 | Day 02 | Setting Up Terraform Environment | ✅ Completed | [Read](#day-02) |
 | Day 03 | Deploying Your First Infrastructure | ✅ Completed | [Read](#day-03) |
-| Day 04 | Mastering Basic Infrastructure | 🚧 In Progress | [Read](#day-04) |
-| Day 05 | Coming Up Next | ⏳ | - |
+| Day 04 | Mastering Basic Infrastructure | ✅ Completed | [Read](#day-04) |
+| Day 05 | Coming Up Next | 🚧 In Progress | - |
 
 ---
 
