@@ -13,7 +13,7 @@ variable "server_port" {
 variable "instance_type" {
   description = "EC2 instance type for cluster members"
   type        = string
-  default     = "t2.micro"
+  default     = "t3.micro"
 }
 
 variable "cluster_name" {
