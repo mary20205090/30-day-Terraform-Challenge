@@ -1,30 +1,35 @@
-variable "vpc_cidr" {
-  description = "CIDR block for the VPC"
+variable "region" {
+  description = "AWS region for the configurable web server"
   type        = string
-  default     = "10.0.0.0/16"
+  default     = "us-west-2"
 }
 
-variable "vpc_name" {
-  description = "Name tag for the VPC"
+variable "server_port" {
+  description = "The port the server will use for HTTP requests"
+  type        = number
+  default     = 8080
+}
+
+variable "instance_type" {
+  description = "EC2 instance type"
   type        = string
-  default     = "demo_vpc"
+  default     = "t2.micro"
 }
 
-variable "private_subnets" {
-  description = "Private subnet names and subnet indexes"
-  type        = map(number)
-
-  default = {
-    private_subnet_1 = 0
-    private_subnet_2 = 1
-  }
+variable "server_name" {
+  description = "Name tag for the EC2 instance"
+  type        = string
+  default     = "configurable-web-server"
 }
 
-variable "public_subnets" {
-  description = "Public subnet names and subnet indexes"
-  type        = map(number)
+variable "environment" {
+  description = "Environment label applied to resources"
+  type        = string
+  default     = "dev"
+}
 
-  default = {
-    public_subnet_1 = 2
-  }
+variable "allowed_cidr_blocks" {
+  description = "CIDR blocks allowed to access the web server"
+  type        = list(string)
+  default     = ["0.0.0.0/0"]
 }

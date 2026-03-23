@@ -1,50 +1,40 @@
 # Day 4 - Configurable Web Server
 
-This lab focused on understanding Terraform data blocks and using queried AWS information inside managed resources.
+This lab refactors a simple EC2 web server so the deployment is driven by input variables instead of hardcoded values.
 
 ## What This Lab Covers
 
-- Query the current AWS region with a Terraform data source
-- Query the available availability zones in the active region
-- Query the most recent Ubuntu 22.04 AMI from Canonical
-- Use queried values inside Terraform resources
-- Create supporting infrastructure for a simple EC2 deployment
+- Configure the AWS provider with a variable-driven region
+- Parameterize the web server port and EC2 instance type
+- Launch a simple EC2-backed web server with a configurable name and environment
+- Use outputs to quickly find the deployed server after `terraform apply`
 
 ## Terraform Concepts Practiced
 
-### Resource blocks
+### Input variables
 
-`resource` blocks create or manage infrastructure in AWS.
-
-Examples from this lab:
-
-- `aws_vpc`
-- `aws_subnet`
-- `aws_security_group`
-- `aws_instance`
-
-### Data blocks
-
-`data` blocks read existing information from AWS instead of creating it.
+`variable` blocks declare inputs Terraform should accept so the same configuration can be reused across environments.
 
 Examples from this lab:
 
-- `data "aws_region" "current"`
-- `data "aws_availability_zones" "available"`
-- `data "aws_ami" "ubuntu_22_04"`
+- `region`
+- `server_port`
+- `instance_type`
+- `server_name`
+- `environment`
 
-The reference pattern used in the lab is:
+Variables are referenced with:
 
 ```hcl
-data.<type>.<name>.<attribute>
+var.<name>
 ```
 
 Examples:
 
 ```hcl
-data.aws_region.current.id
-data.aws_availability_zones.available.names
-data.aws_ami.ubuntu_22_04.id
+var.region
+var.server_port
+var.instance_type
 ```
 
 ## Files
@@ -56,23 +46,22 @@ data.aws_ami.ubuntu_22_04.id
 
 This lab creates or manages:
 
-- 1 VPC
-- Private subnet resources
-- 1 public subnet
 - 1 security group
 - 1 EC2 instance
 
-## Why Data Blocks Matter
+## Why Input Variables Matter
 
-Using data blocks makes Terraform more flexible because values do not need to be hardcoded.
+Using input variables makes Terraform more flexible because important settings do not need to be hardcoded in `main.tf`.
 
-Instead of manually typing values like:
+Instead of fixing values directly in the resource blocks, Terraform can accept different values for:
 
 - AWS region
-- availability zones
-- AMI IDs
+- instance type
+- server port
+- resource names
+- environment labels
 
-Terraform can query AWS directly and use the returned values in the configuration.
+This makes the same Terraform code reusable for multiple environments and use cases.
 
 ## Commands Used
 
@@ -108,35 +97,28 @@ terraform destroy
 
 ## Troubleshooting Notes
 
-### Deprecated region attribute
+### Security group access
 
-The original lab used `data.aws_region.current.name`, but newer AWS provider versions mark `name` as deprecated. In this lab folder, `data.aws_region.current.id` is used instead.
+The EC2 instance is reachable only on the configured `server_port`, so the security group must allow that port.
 
-### Subnet CIDR conflicts
+### Default VPC usage
 
-Subnet CIDR blocks must not overlap within the same VPC. During this lab, subnet index values had to be adjusted so each subnet received a unique CIDR range.
-
-### Partial apply behavior
-
-A failed `terraform apply` can still leave some resources created in AWS. Always check both:
-
-- `terraform state list`
-- AWS Console
+This lab uses the default VPC and its default subnets so the focus stays on input variables instead of custom networking.
 
 ## AWS Console Verification
 
 After a successful apply, check:
 
-- `VPC > Your VPCs`
-- `VPC > Subnets`
 - `VPC > Security Groups`
 - `EC2 > Instances`
+- `EC2 > Instances` public DNS or public IP
 
 ## Key Takeaways
 
 - `resource` creates or manages infrastructure
-- `data` looks up existing information
-- Data sources help avoid hardcoding values
+- `variable` defines configurable input values
+- `var.<name>` is how Terraform reads input variables
+- Input variables help avoid hardcoding values
 - `terraform plan` helps review changes before applying
 - `terraform destroy` is important for cleanup, especially on Free Tier
 
@@ -146,5 +128,4 @@ After finishing the lab:
 
 1. Run `terraform destroy`
 2. Confirm `terraform state list` returns nothing
-3. Verify in AWS Console that the VPC, subnets, security groups, and instances are gone
-
+3. Verify in AWS Console that the security group and instance are gone
