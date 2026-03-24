@@ -14,8 +14,9 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 | Day 02 | Setting Up Terraform Environment | ✅ Completed | [Read](#day-02) |
 | Day 03 | Deploying Your First Infrastructure | ✅ Completed | [Read](#day-03) |
 | Day 04 | Mastering Basic Infrastructure | ✅ Completed | [Read](#day-04) |
-| Day 05 | Coming Up Next | 🚧 In Progress | - |
-| Day 06 | Coming Up Next | ⏳ | - |
+| Day 05 | Managing Load Balancers and Terraform State | ✅ Completed | [Read](#day-05) |
+| Day 06 | Coming Up Next | 🚧 In Progress | - |
+| Day 07 | Coming Soon | ⏳ | - |
 
 ---
 
@@ -31,15 +32,22 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 👉 [Deploying Infrastructure with Terraform: Understanding Provider and Resource Blocks](https://dev.to/mary_mutua_9d55b3c269f343/deploying-your-first-server-with-terraform-a-beginners-guide-33bo)
 
 ### Day 04
-👉 Coming soon...
+👉 [Deploying a Highly Available Web App on AWS Using Terraform](https://dev.to/mary_mutua_9d55b3c269f343/deploying-a-highly-available-web-app-on-aws-using-terraform-5g3)
 
----
+### Day 05
+👉 [Managing High Traffic Applications with AWS Elastic Load Balancer and Terraform](https://dev.to/mary_mutua_9d55b3c269f343/managing-high-traffic-applications-with-aws-elastic-load-balancer-and-terraform-5cpn)
+
 
 ## 🧠 What I’m Learning
 
 - Terraform fundamentals (provider & resource blocks)  
+- Input variables and reusable Terraform configurations  
+- Data sources and dynamic infrastructure lookups  
 - Infrastructure as Code (IaC) principles  
 - AWS resource provisioning  
+- Load balancing and Auto Scaling on AWS  
+- Terraform state, drift detection, and reconciliation  
+- Remote state storage and state locking concepts  
 - Debugging real-world cloud issues  
 - Writing clean, reusable Terraform code  
 
