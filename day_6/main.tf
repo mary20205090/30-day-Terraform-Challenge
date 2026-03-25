@@ -1,3 +1,16 @@
+# Configure Terraform to store state remotely in S3 and use DynamoDB for
+# state locking. The bucket and table must exist before this backend can work,
+# so they are created separately in the bootstrap folder.
+terraform {
+  backend "s3" {
+    bucket         = "mary-mutua-30day-terraform-state-20260325-a1b2"
+    key            = "day_6/terraform.tfstate"
+    region         = "us-east-1"
+    dynamodb_table = "terraform-state-locks"
+    encrypt        = true
+  }
+}
+
 # Configure the AWS provider. For this Day 6 lab, we only need one region
 # because the goal is to deploy a small resource and inspect Terraform state.
 provider "aws" {
