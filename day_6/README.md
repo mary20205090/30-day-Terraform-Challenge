@@ -199,6 +199,13 @@ Steps:
 
 That is the solution to the error you saw.
 
+Important note:
+
+- because versioning was enabled on the S3 bucket, deleting only the visible state file was not always enough
+- older object versions or delete markers could still remain in the bucket
+- this can cause AWS to return `BucketNotEmpty` even when the bucket looks empty in normal view
+- enabling `Show versions` in the S3 console helps reveal those hidden versions
+
 ## Key Day 6 Lessons
 
 - Terraform state stores the mapping between Terraform code and real infrastructure

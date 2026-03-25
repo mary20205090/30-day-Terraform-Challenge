@@ -15,7 +15,7 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 | Day 03 | Deploying Your First Infrastructure | ✅ Completed | [Read](#day-03) |
 | Day 04 | Mastering Basic Infrastructure | ✅ Completed | [Read](#day-04) |
 | Day 05 | Managing Load Balancers and Terraform State | ✅ Completed | [Read](#day-05) |
-| Day 06 | Coming Up Next | 🚧 In Progress | - |
+| Day 06 | Remote State with S3 and DynamoDB | ✅ Completed | - |
 | Day 07 | Coming Soon | ⏳ | - |
 
 ---
@@ -48,6 +48,7 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 - Load balancing and Auto Scaling on AWS  
 - Terraform state, drift detection, and reconciliation  
 - Remote state storage and state locking concepts  
+- S3 backends, DynamoDB locking, and backend bootstrap workflows  
 - Debugging real-world cloud issues  
 - Writing clean, reusable Terraform code  
 
