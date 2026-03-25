@@ -11,9 +11,11 @@ provider "aws" {
 resource "aws_s3_bucket" "terraform_state" {
   bucket = "mary-mutua-30day-terraform-state-20260325-a1b2"
 
-  lifecycle {
-    prevent_destroy = true
-  }
+  # lifecycle {
+  #   prevent_destroy = true
+  # }
+
+  force_destroy = true
 
   tags = {
     Name        = "terraform-remote-state"

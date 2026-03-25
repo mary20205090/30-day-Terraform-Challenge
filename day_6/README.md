@@ -154,6 +154,51 @@ The `terraform.tfstate` file was still present, but it became almost empty and c
 
 This confirmed that Terraform removes destroyed resources from state when they no longer exist.
 
+## Destroy Order Matters
+
+When cleaning up this lab, resources should be destroyed in this order:
+
+1. destroy `day_6` resources first
+2. destroy `day_6/bootstrap` last
+
+Why:
+
+- `day_6` is using the remote backend
+- it still needs the S3 bucket and DynamoDB table to track the destroy cleanly
+- if the backend is removed first, Terraform loses the place where its state lives
+
+## Why prevent_destroy Was Added
+
+The S3 bucket in `day_6/bootstrap` was created with:
+
+```hcl
+lifecycle {
+  prevent_destroy = true
+}
+```
+
+This was added as a safety guard.
+
+Why it is useful:
+
+- the bucket stores Terraform state, which is very important
+- deleting it accidentally could make state recovery much harder
+- backend infrastructure is usually more sensitive than ordinary lab resources
+
+So `prevent_destroy` is there to stop accidental deletion of the state bucket.
+
+## How to Fully Destroy bootstrap Resources
+
+If you want to remove the backend infrastructure too, you must first update the S3 bucket resource in `day_6/bootstrap/main.tf`.
+
+Steps:
+
+1. remove the `prevent_destroy = true` lifecycle rule
+2. add `force_destroy = true` to the S3 bucket resource if you want Terraform to remove the bucket even when it still contains the remote state file
+3. run `terraform destroy` again inside `day_6/bootstrap`
+
+That is the solution to the error you saw.
+
 ## Key Day 6 Lessons
 
 - Terraform state stores the mapping between Terraform code and real infrastructure
