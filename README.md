@@ -15,8 +15,9 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 | Day 03 | Deploying Your First Infrastructure | ✅ Completed | [Read](#day-03) |
 | Day 04 | Mastering Basic Infrastructure | ✅ Completed | [Read](#day-04) |
 | Day 05 | Managing Load Balancers and Terraform State | ✅ Completed | [Read](#day-05) |
-| Day 06 | Remote State with S3 and DynamoDB | ✅ Completed | - |
-| Day 07 | Coming Soon | ⏳ | - |
+| Day 06 | Remote State with S3 and DynamoDB | ✅ Completed | [Read](#day-06) |
+| Day 07 | Coming Up Next | 🚧 In Progress | - |
+| Day 08 | Coming Soon | ⏳ | - |
 
 ---
 
@@ -37,6 +38,9 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 ### Day 05
 👉 [Managing High Traffic Applications with AWS Elastic Load Balancer and Terraform](https://dev.to/mary_mutua_9d55b3c269f343/managing-high-traffic-applications-with-aws-elastic-load-balancer-and-terraform-5cpn)
 
+### Day 06
+👉 [Managing Terraform State: Best Practices for DevOps with S3 and DynamoDB](https://dev.to/mary_mutua_9d55b3c269f343/managing-terraform-state-best-practices-for-devops-with-s3-and-dynamodb-4oc3)
+
 
 ## 🧠 What I’m Learning
 
@@ -49,6 +53,7 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 - Terraform state, drift detection, and reconciliation  
 - Remote state storage and state locking concepts  
 - S3 backends, DynamoDB locking, and backend bootstrap workflows  
+- Backend migration, destroy ordering, and versioned S3 bucket cleanup  
 - Debugging real-world cloud issues  
 - Writing clean, reusable Terraform code  
 
