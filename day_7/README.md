@@ -209,3 +209,12 @@ Workspaces are useful when environments are very similar and you want quick swit
 File layouts are usually easier to trust for real production use because the environment boundary is clearer in both the folder structure and the backend key.
 
 `terraform_remote_state` helps connect separate configurations by letting one configuration read outputs from another without merging their state files.
+
+## Cleanup Note
+
+Destroying the backend S3 bucket can behave differently depending on what is still inside it.
+
+- if the bucket only has current objects and Terraform can remove them cleanly, `force_destroy = true` may be enough
+- if versioning is enabled and old object versions or delete markers still exist, AWS may still return `BucketNotEmpty`
+
+That means a versioned bucket can look empty in the normal S3 view but still fail to delete until all versions and delete markers are gone.
