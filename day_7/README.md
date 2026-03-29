@@ -84,3 +84,59 @@ That means:
 - the same Terraform files can be reused
 - each workspace keeps its own separate state
 - Terraform can manage dev, staging, and production-like environments without mixing their state together
+
+## State Isolation via File Layouts
+
+I also created a file-layout version of the same idea under:
+
+- `day_7/environments/dev`
+- `day_7/environments/staging`
+- `day_7/environments/production`
+
+In this approach, each environment has its own:
+
+- `main.tf`
+- `variables.tf`
+- `outputs.tf`
+- `backend.tf`
+
+The biggest difference from workspaces is that file layout isolates both:
+
+- the state file
+- the entry-point folder
+
+That means each environment is run independently from its own directory.
+
+Example backend keys:
+
+- `environments/dev/terraform.tfstate`
+- `environments/staging/terraform.tfstate`
+- `environments/production/terraform.tfstate`
+
+This approach is easier to reason about in production because:
+
+- each environment is more explicit
+- there is less chance of applying changes in the wrong environment
+- dev, staging, and production are separated more clearly
+
+## Workspace vs File Layout
+
+### Workspaces
+
+- same code
+- same backend bucket
+- different state files
+- faster to switch between similar environments
+
+### File Layouts
+
+- separate folders
+- separate backend keys
+- separate state files
+- clearer and safer for production-style separation
+
+## Practical Day 7 Takeaway
+
+Workspaces are useful when the environments are very similar and you want quick switching.
+
+File layouts are usually easier to trust for real production use because the environment boundary is clearer in both the code structure and the state path.
