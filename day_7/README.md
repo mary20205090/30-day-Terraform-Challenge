@@ -144,3 +144,25 @@ This approach is easier to reason about in production because:
 Workspaces are useful when the environments are very similar and you want quick switching.
 
 File layouts are usually easier to trust for real production use because the environment boundary is clearer in both the code structure and the state path.
+
+## Using the Remote State Data Source
+
+I also added a `terraform_remote_state` example to show how one configuration can read outputs from another state file.
+
+In this lab:
+
+- `dev` exposes outputs such as `vpc_id` and `subnet_id`
+- `production` reads those outputs from the dev state file
+
+That means production can reuse values from another configuration without directly managing that other configuration's resources.
+
+This is useful when infrastructure is split into separate layers, for example:
+
+- networking layer
+- application layer
+- database layer
+
+The key lesson is:
+
+- one Terraform configuration should expose values with `output`
+- another configuration can read those values using `terraform_remote_state`

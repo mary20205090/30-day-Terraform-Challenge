@@ -5,16 +5,15 @@ provider "aws" {
   region = var.region
 }
 
-# Reuse the default VPC so the lab stays small and easy to understand.
-data "aws_vpc" "default" {
-  default = true
-}
+# Read outputs from the dev state file to demonstrate how one configuration
+# can safely consume values exposed by another configuration.
+data "terraform_remote_state" "dev_network" {
+  backend = "s3"
 
-# Fetch the default VPC subnets and place the instance in the first one.
-data "aws_subnets" "default" {
-  filter {
-    name   = "vpc-id"
-    values = [data.aws_vpc.default.id]
+  config = {
+    bucket = "mary-mutua-30day-terraform-state-20260325-a1b2"
+    key    = "environments/dev/terraform.tfstate"
+    region = "us-east-1"
   }
 }
 
@@ -35,7 +34,7 @@ data "aws_ami" "ubuntu" {
 resource "aws_instance" "web" {
   ami                         = data.aws_ami.ubuntu.id
   instance_type               = var.instance_type
-  subnet_id                   = data.aws_subnets.default.ids[0]
+  subnet_id                   = data.terraform_remote_state.dev_network.outputs.subnet_id
   associate_public_ip_address = true
 
   tags = {
