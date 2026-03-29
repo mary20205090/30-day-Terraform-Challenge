@@ -4,6 +4,12 @@ variable "environment_name" {
   default     = "staging"
 }
 
+variable "region" {
+  description = "AWS region for the staging environment"
+  type        = string
+  default     = "us-west-2"
+}
+
 variable "instance_type" {
   description = "EC2 instance type for the staging environment"
   type        = string

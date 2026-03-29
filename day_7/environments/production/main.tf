@@ -2,7 +2,7 @@
 # That means production has its own code entry point and its own state file.
 
 provider "aws" {
-  region = "us-west-2"
+  region = var.region
 }
 
 # Reuse the default VPC so the lab stays small and easy to understand.

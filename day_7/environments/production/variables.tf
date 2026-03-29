@@ -4,6 +4,12 @@ variable "environment_name" {
   default     = "production"
 }
 
+variable "region" {
+  description = "AWS region for the production environment"
+  type        = string
+  default     = "us-west-2"
+}
+
 variable "instance_type" {
   description = "EC2 instance type for the production environment"
   type        = string
