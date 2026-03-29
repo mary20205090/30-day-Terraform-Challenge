@@ -1,6 +1,11 @@
-# Day 7 - State Isolation with Terraform Workspaces
+# Day 7 - State Isolation with Terraform Workspaces and File Layouts
 
-Day 7 focused on using Terraform workspaces to isolate environments while reusing the same Terraform code.
+Day 7 focused on two ways of isolating Terraform state:
+
+- Terraform workspaces
+- file layout isolation
+
+I also used the `terraform_remote_state` data source so one configuration could read outputs from another.
 
 ## What a Workspace Means
 
@@ -123,6 +128,13 @@ This approach is easier to reason about in production because:
 - there is less chance of applying changes in the wrong environment
 - dev, staging, and production are separated more clearly
 
+I tested the file-layout approach by running Terraform independently from separate folders, including:
+
+- `day_7/environments/dev`
+- `day_7/environments/production`
+
+This showed that each directory could manage its own infrastructure and its own state path without depending on workspace switching.
+
 ## Workspace vs File Layout
 
 ### Workspaces
@@ -166,3 +178,34 @@ The key lesson is:
 
 - one Terraform configuration should expose values with `output`
 - another configuration can read those values using `terraform_remote_state`
+
+In this lab:
+
+- `dev` exported `vpc_id` and `subnet_id`
+- `production` read those outputs from the `dev` state file
+- `production` then reused the remote `subnet_id` when creating its own EC2 instance
+
+That proved separate configurations can stay isolated while still sharing selected values safely through outputs.
+
+## What I Confirmed in S3
+
+For workspaces, Terraform created separate state paths such as:
+
+- `env:/dev/`
+- `env:/staging/`
+- `env:/production/`
+
+For file layouts, Terraform used separate backend keys such as:
+
+- `environments/dev/terraform.tfstate`
+- `environments/production/terraform.tfstate`
+
+This showed that both approaches isolate state, but file layouts make the separation more explicit in the directory structure and backend configuration.
+
+## Final Day 7 Takeaway
+
+Workspaces are useful when environments are very similar and you want quick switching with the same codebase.
+
+File layouts are usually easier to trust for real production use because the environment boundary is clearer in both the folder structure and the backend key.
+
+`terraform_remote_state` helps connect separate configurations by letting one configuration read outputs from another without merging their state files.
