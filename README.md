@@ -17,8 +17,9 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 | Day 05 | Managing Load Balancers and Terraform State | ✅ Completed | [Read](#day-05) |
 | Day 06 | Remote State with S3 and DynamoDB | ✅ Completed | [Read](#day-06) |
 | Day 07 | State Isolation with Workspaces and File Layouts | ✅ Completed | [Read](#day-07) |
-| Day 08 | Coming Up Next | 🚧 In Progress | - |
-| Day 09 | Coming Soon | ⏳ | - |
+| Day 08 | Building Reusable Infrastructure with Terraform Modules | ✅ Completed | [Read](#day-08) |
+| Day 09 | Coming Up Next | 🚧 In Progress | - |
+| Day 10 | Coming Soon | ⏳ | - |
 
 ---
 
@@ -45,6 +46,9 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 ### Day 07
 👉 [State Isolation: Workspaces vs File Layouts — When to Use Each](https://dev.to/mary_mutua_9d55b3c269f343/state-isolation-workspaces-vs-file-layouts-when-to-use-each-mae)
 
+### Day 08
+👉 [Building Reusable Infrastructure with Terraform Modules](https://dev.to/mary_mutua_9d55b3c269f343/building-reusable-infrastructure-with-terraform-modules-71d)
+
 
 ## 🧠 What I’m Learning
 
@@ -61,6 +65,9 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 - State isolation with Terraform workspaces  
 - File layout isolation for multi-environment deployments  
 - Sharing outputs across configurations with terraform_remote_state  
+- Building reusable infrastructure with Terraform modules  
+- Designing module inputs, outputs, and module directory structures  
+- Refactoring repeated Terraform code into shared components  
 - Debugging real-world cloud issues  
 - Writing clean, reusable Terraform code  
 
