@@ -7,5 +7,5 @@ variable "environment_name" {
 variable "instance_type" {
   description = "EC2 instance type for the production environment"
   type        = string
-  default     = "t3.medium"
+  default     = "t3.micro"
 }
