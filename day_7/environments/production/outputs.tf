@@ -9,11 +9,11 @@ output "instance_id" {
 }
 
 output "source_vpc_id" {
-  value       = data.terraform_remote_state.dev_network.outputs.vpc_id
+  value       = try(data.terraform_remote_state.dev_network.outputs.vpc_id, null)
   description = "VPC ID read from the dev remote state"
 }
 
 output "source_subnet_id" {
-  value       = data.terraform_remote_state.dev_network.outputs.subnet_id
+  value       = try(data.terraform_remote_state.dev_network.outputs.subnet_id, null)
   description = "Subnet ID read from the dev remote state"
 }

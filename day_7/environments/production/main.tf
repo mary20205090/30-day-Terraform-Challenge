@@ -5,6 +5,21 @@ provider "aws" {
   region = var.region
 }
 
+# Keep a local fallback lookup so production can still destroy cleanly even if
+# the dev state file has already been removed.
+data "aws_vpc" "default" {
+  default = true
+}
+
+# Fetch default subnets as a fallback when remote-state outputs are not
+# available anymore.
+data "aws_subnets" "default" {
+  filter {
+    name   = "vpc-id"
+    values = [data.aws_vpc.default.id]
+  }
+}
+
 # Read outputs from the dev state file to demonstrate how one configuration
 # can safely consume values exposed by another configuration.
 data "terraform_remote_state" "dev_network" {
@@ -34,7 +49,7 @@ data "aws_ami" "ubuntu" {
 resource "aws_instance" "web" {
   ami                         = data.aws_ami.ubuntu.id
   instance_type               = var.instance_type
-  subnet_id                   = data.terraform_remote_state.dev_network.outputs.subnet_id
+  subnet_id                   = try(data.terraform_remote_state.dev_network.outputs.subnet_id, data.aws_subnets.default.ids[0])
   associate_public_ip_address = true
 
   tags = {
