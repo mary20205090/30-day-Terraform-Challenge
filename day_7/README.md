@@ -100,6 +100,8 @@ In this approach, each environment has its own:
 - `outputs.tf`
 - `backend.tf`
 
+I also updated the file-layout folders to use a reusable `region` variable instead of hardcoding the provider region. This makes it easier to change regions later without editing the provider block in multiple places.
+
 The biggest difference from workspaces is that file layout isolates both:
 
 - the state file
@@ -112,6 +114,8 @@ Example backend keys:
 - `environments/dev/terraform.tfstate`
 - `environments/staging/terraform.tfstate`
 - `environments/production/terraform.tfstate`
+
+For this lab, I kept the environments in the same AWS region (`us-west-2`) on purpose. That made the exercise simpler and easier to compare while still proving that file-layout isolation works through separate folders and separate backend keys.
 
 This approach is easier to reason about in production because:
 
