@@ -6,7 +6,7 @@ provider "aws" {
 }
 
 module "webserver_cluster" {
-  source = "github.com/mary20205090/30-day-Terraform-Challenge//day_8/modules/services/webserver-cluster?ref=v0.0.1"
+  source = "github.com/mary20205090/30-day-Terraform-Challenge//day_8/modules/services/webserver-cluster?ref=v0.0.2"
 
   cluster_name        = "webservers-dev"
   environment         = "dev"
@@ -26,4 +26,9 @@ output "alb_dns_name" {
 output "asg_name" {
   value       = module.webserver_cluster.asg_name
   description = "The name of the development Auto Scaling Group"
+}
+
+output "alb_zone_id" {
+  value       = module.webserver_cluster.alb_zone_id
+  description = "The Route 53 zone ID exposed by the v0.0.2 module"
 }

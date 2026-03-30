@@ -27,3 +27,8 @@ output "server_port" {
   value       = var.server_port
   description = "The application port used by the cluster instances"
 }
+
+output "alb_zone_id" {
+  value       = aws_lb.example.zone_id
+  description = "The Route 53 zone ID of the load balancer"
+}
