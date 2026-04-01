@@ -20,8 +20,9 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 | Day 08 | Building Reusable Infrastructure with Terraform Modules | ✅ Completed | [Read](#day-08) |
 | Day 09 | Advanced Terraform Modules — Versioning, Gotchas, and Multi-Environment Reuse | ✅ Completed | [Read](#day-09) |
 | Day 10 | Terraform Loops and Conditionals — Dynamic Infrastructure at Scale | ✅ Completed | [Read](#day-10) |
-| Day 11 | Coming Up Next | 🚧 In Progress | - |
-| Day 12 | Coming Soon | ⏳ | - |
+| Day 11 | Mastering Terraform Conditionals — Smarter, More Flexible Deployments | ✅ Completed | [Read](#day-11) |
+| Day 12 | Coming Up Next | 🚧 In Progress | - |
+| Day 13 | Coming Soon | ⏳ | - |
 
 ---
 
@@ -57,6 +58,9 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 ### Day 10
 👉 [Mastering Loops and Conditionals in Terraform](https://dev.to/mary_mutua_9d55b3c269f343/mastering-loops-and-conditionals-in-terraform-844)
 
+### Day 11
+👉 [Mastering Terraform Conditionals — Smarter, More Flexible Deployments](#)
+
 
 ## 🧠 What I’m Learning
 
@@ -80,6 +84,8 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 - Module source paths, common gotchas, and multi-environment pinning  
 - Loops with count and for_each  
 - for expressions and Terraform conditionals  
+- Centralizing environment logic with locals and validation  
+- Conditionally creating resources and data lookups with count  
 - Debugging real-world cloud issues  
 - Writing clean, reusable Terraform code  
 
