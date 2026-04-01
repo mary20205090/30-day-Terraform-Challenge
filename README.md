@@ -18,8 +18,10 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 | Day 06 | Remote State with S3 and DynamoDB | ✅ Completed | [Read](#day-06) |
 | Day 07 | State Isolation with Workspaces and File Layouts | ✅ Completed | [Read](#day-07) |
 | Day 08 | Building Reusable Infrastructure with Terraform Modules | ✅ Completed | [Read](#day-08) |
-| Day 09 | Coming Up Next | 🚧 In Progress | - |
-| Day 10 | Coming Soon | ⏳ | - |
+| Day 09 | Advanced Terraform Modules — Versioning, Gotchas, and Multi-Environment Reuse | ✅ Completed | [Read](#day-09) |
+| Day 10 | Terraform Loops and Conditionals — Dynamic Infrastructure at Scale | ✅ Completed | [Read](#day-10) |
+| Day 11 | Coming Up Next | 🚧 In Progress | - |
+| Day 12 | Coming Soon | ⏳ | - |
 
 ---
 
@@ -49,6 +51,12 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 ### Day 08
 👉 [Building Reusable Infrastructure with Terraform Modules](https://dev.to/mary_mutua_9d55b3c269f343/building-reusable-infrastructure-with-terraform-modules-71d)
 
+### Day 09
+👉 [Advanced Terraform Module Usage: Versioning, Gotchas, and Reuse Across Environments](https://dev.to/mary_mutua_9d55b3c269f343/advanced-terraform-module-usage-versioning-gotchas-and-reuse-across-environments-1nkf)
+
+### Day 10
+👉 [Mastering Loops and Conditionals in Terraform](https://dev.to/mary_mutua_9d55b3c269f343/mastering-loops-and-conditionals-in-terraform-844)
+
 
 ## 🧠 What I’m Learning
 
@@ -68,6 +76,10 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 - Building reusable infrastructure with Terraform modules  
 - Designing module inputs, outputs, and module directory structures  
 - Refactoring repeated Terraform code into shared components  
+- Terraform module versioning with Git tags  
+- Module source paths, common gotchas, and multi-environment pinning  
+- Loops with count and for_each  
+- for expressions and Terraform conditionals  
 - Debugging real-world cloud issues  
 - Writing clean, reusable Terraform code  
 
