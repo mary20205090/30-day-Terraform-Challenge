@@ -59,7 +59,7 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 👉 [Mastering Loops and Conditionals in Terraform](https://dev.to/mary_mutua_9d55b3c269f343/mastering-loops-and-conditionals-in-terraform-844)
 
 ### Day 11
-👉 [Mastering Terraform Conditionals — Smarter, More Flexible Deployments](#)
+👉 [Mastering Terraform Conditionals — Smarter, More Flexible Deployments](https://dev.to/mary_mutua_9d55b3c269f343/how-conditionals-make-terraform-infrastructure-dynamic-and-efficient-il3)
 
 
 ## 🧠 What I’m Learning
