@@ -22,8 +22,9 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 | Day 10 | Terraform Loops and Conditionals — Dynamic Infrastructure at Scale | ✅ Completed | [Read](#day-10) |
 | Day 11 | Mastering Terraform Conditionals — Smarter, More Flexible Deployments | ✅ Completed | [Read](#day-11) |
 | Day 12 | Zero-Downtime Deployments with Terraform | ✅ Completed | [Read](#day-12) |
-| Day 13 | Coming Up Next | 🚧 In Progress | - |
-| Day 14 | Coming Soon | ⏳ | - |
+| Day 13 | Managing Sensitive Data Securely in Terraform | ✅ Completed | [Read](#day-13) |
+| Day 14 | Coming Soon | 🚧 In Progress | - |
+| Day 15 | Coming Soon | ⏳ | - |
 
 ---
 
@@ -65,6 +66,9 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 ### Day 12
 👉 [Zero-Downtime Deployments with Terraform](https://dev.to/mary_mutua_9d55b3c269f343/mastering-zero-downtime-deployments-with-terraform-1bi5)
 
+### Day 13
+👉 [Coming soon](#day-13)
+
 
 ## 🧠 What I’m Learning
 
@@ -92,6 +96,9 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 - Conditionally creating resources and data lookups with count  
 - Zero-downtime replacement with create_before_destroy  
 - Blue/green deployment patterns and traffic switching with ALB  
+- Secret leak paths in Terraform code, variables, and state files  
+- Reading infrastructure secrets from AWS Secrets Manager  
+- Using sensitive values and understanding their state-file limitations  
 - Debugging real-world cloud issues  
 - Writing clean, reusable Terraform code  
 
