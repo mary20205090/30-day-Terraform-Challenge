@@ -29,3 +29,6 @@ Thumbs.db
 
 # Codex workspace file
 .codex
+
+# Allow today's lock file to be committed for Day 14 provider version tracking
+!day_14/.terraform.lock.hcl
