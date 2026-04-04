@@ -63,7 +63,7 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 👉 [Mastering Terraform Conditionals — Smarter, More Flexible Deployments](https://dev.to/mary_mutua_9d55b3c269f343/how-conditionals-make-terraform-infrastructure-dynamic-and-efficient-il3)
 
 ### Day 12
-👉 [Zero-Downtime Deployments with Terraform](https://dev.to/mary_mutua_9d55b3c269f343/how-conditionals-make-terraform-infrastructure-dynamic-and-efficient-il3)
+👉 [Zero-Downtime Deployments with Terraform](https://dev.to/mary_mutua_9d55b3c269f343/mastering-zero-downtime-deployments-with-terraform-1bi5)
 
 
 ## 🧠 What I’m Learning
