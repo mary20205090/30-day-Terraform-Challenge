@@ -1,0 +1,14 @@
+# Best-practice example for protecting Terraform state in a real environment.
+# Rename this file to backend.tf and replace the placeholder values only if you
+# want Day 13 to use a remote backend instead of local state.
+
+terraform {
+  backend "s3" {
+    bucket         = "your-terraform-state-bucket"
+    # Use a unique key per lesson or environment so state files do not collide.
+    key            = "day_13/terraform.tfstate"
+    region         = "us-east-1"
+    dynamodb_table = "your-terraform-state-locks"
+    encrypt        = true
+  }
+}
