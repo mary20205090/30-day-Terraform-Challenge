@@ -23,8 +23,9 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 | Day 11 | Mastering Terraform Conditionals — Smarter, More Flexible Deployments | ✅ Completed | [Read](#day-11) |
 | Day 12 | Zero-Downtime Deployments with Terraform | ✅ Completed | [Read](#day-12) |
 | Day 13 | Managing Sensitive Data Securely in Terraform | ✅ Completed | [Read](#day-13) |
-| Day 14 | Coming Soon | 🚧 In Progress | - |
-| Day 15 | Coming Soon | ⏳ | - |
+| Day 14 | Working with Multiple Providers - Part 1 | ✅ Completed | [Read](#day-14) |
+| Day 15 | Coming Soon | 🚧 In Progress | - |
+| Day 16 | Coming Soon | ⏳ | - |
 
 ---
 
@@ -69,6 +70,9 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 ### Day 13
 👉 [How to Handle Sensitive Data Securely in Terraform](https://dev.to/mary_mutua_9d55b3c269f343/how-to-handle-sensitive-data-securely-in-terraform-5fgn)
 
+### Day 14
+👉 [Working with Multiple Providers - Part 1](#day-14)
+
 
 ## 🧠 What I’m Learning
 
@@ -99,6 +103,9 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 - Secret leak paths in Terraform code, variables, and state files  
 - Reading infrastructure secrets from AWS Secrets Manager  
 - Using sensitive values and understanding their state-file limitations  
+- Understanding providers as Terraform plugins  
+- Pinning provider versions and using `.terraform.lock.hcl` safely  
+- Using provider aliases for multi-region and multi-account patterns  
 - Debugging real-world cloud issues  
 - Writing clean, reusable Terraform code  
 
