@@ -1,0 +1,31 @@
+# Example only: this pattern shows how multiple copies of the same provider
+# can assume different roles in different AWS accounts.
+
+provider "aws" {
+  region = "us-east-1"
+  alias  = "production"
+
+  assume_role {
+    role_arn = "arn:aws:iam::111111111111:role/TerraformDeployRole"
+  }
+}
+
+provider "aws" {
+  region = "us-east-1"
+  alias  = "staging"
+
+  assume_role {
+    role_arn = "arn:aws:iam::222222222222:role/TerraformDeployRole"
+  }
+}
+
+# A resource can choose exactly which assumed-role provider to use.
+resource "aws_s3_bucket" "production_example" {
+  provider = aws.production
+  bucket   = "replace-me-production-example"
+}
+
+resource "aws_s3_bucket" "staging_example" {
+  provider = aws.staging
+  bucket   = "replace-me-staging-example"
+}
