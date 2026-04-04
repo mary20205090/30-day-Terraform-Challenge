@@ -71,7 +71,7 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 👉 [How to Handle Sensitive Data Securely in Terraform](https://dev.to/mary_mutua_9d55b3c269f343/how-to-handle-sensitive-data-securely-in-terraform-5fgn)
 
 ### Day 14
-👉 [Working with Multiple Providers - Part 1](#day-14)
+👉 [Working with Multiple Providers - Part 1](https://dev.to/mary_mutua_9d55b3c269f343/getting-started-with-multiple-providers-in-terraform-3g39)
 
 
 ## 🧠 What I’m Learning
