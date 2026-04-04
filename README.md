@@ -21,8 +21,9 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 | Day 09 | Advanced Terraform Modules — Versioning, Gotchas, and Multi-Environment Reuse | ✅ Completed | [Read](#day-09) |
 | Day 10 | Terraform Loops and Conditionals — Dynamic Infrastructure at Scale | ✅ Completed | [Read](#day-10) |
 | Day 11 | Mastering Terraform Conditionals — Smarter, More Flexible Deployments | ✅ Completed | [Read](#day-11) |
-| Day 12 | Coming Up Next | 🚧 In Progress | - |
-| Day 13 | Coming Soon | ⏳ | - |
+| Day 12 | Zero-Downtime Deployments with Terraform | ✅ Completed | [Read](#day-12) |
+| Day 13 | Coming Up Next | 🚧 In Progress | - |
+| Day 14 | Coming Soon | ⏳ | - |
 
 ---
 
@@ -61,6 +62,9 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 ### Day 11
 👉 [Mastering Terraform Conditionals — Smarter, More Flexible Deployments](https://dev.to/mary_mutua_9d55b3c269f343/how-conditionals-make-terraform-infrastructure-dynamic-and-efficient-il3)
 
+### Day 12
+👉 [Zero-Downtime Deployments with Terraform](#)
+
 
 ## 🧠 What I’m Learning
 
@@ -86,6 +90,8 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 - for expressions and Terraform conditionals  
 - Centralizing environment logic with locals and validation  
 - Conditionally creating resources and data lookups with count  
+- Zero-downtime replacement with create_before_destroy  
+- Blue/green deployment patterns and traffic switching with ALB  
 - Debugging real-world cloud issues  
 - Writing clean, reusable Terraform code  
 
