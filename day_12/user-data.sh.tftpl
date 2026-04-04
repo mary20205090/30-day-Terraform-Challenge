@@ -1,0 +1,12 @@
+#!/bin/bash
+set -euo pipefail
+
+cat > /tmp/index.html <<EOF
+<html>
+  <body>
+    <h1>${response_text}</h1>
+  </body>
+</html>
+EOF
+
+nohup python3 -m http.server ${server_port} --directory /tmp >/tmp/http.log 2>&1 &
