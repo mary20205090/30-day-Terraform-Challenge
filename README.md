@@ -67,7 +67,7 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 👉 [Zero-Downtime Deployments with Terraform](https://dev.to/mary_mutua_9d55b3c269f343/mastering-zero-downtime-deployments-with-terraform-1bi5)
 
 ### Day 13
-👉 [Coming soon](#day-13)
+👉 [How to Handle Sensitive Data Securely in Terraform](https://dev.to/mary_mutua_9d55b3c269f343/how-to-handle-sensitive-data-securely-in-terraform-5fgn)
 
 
 ## 🧠 What I’m Learning
