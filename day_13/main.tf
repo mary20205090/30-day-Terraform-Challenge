@@ -2,9 +2,17 @@ provider "aws" {
   region = var.region
 }
 
-# This lesson uses local state so everything can be destroyed cleanly after practice.
-# In a real environment, remote state must still be protected because secrets can leak into it.
-# The production-ready S3 backend example for this lesson lives in backend.tf.example.
+# Day 13 uses a real remote backend so the lab covers the state-file risk properly.
+# Create the backend infrastructure in day_13/bootstrap before running terraform init here.
+terraform {
+  backend "s3" {
+    bucket         = "mary-mutua-30day-terraform-state-day13-20260404-a1b3"
+    key            = "day_13/terraform.tfstate"
+    region         = "us-east-1"
+    dynamodb_table = "terraform-state-locks-day13"
+    encrypt        = true
+  }
+}
 
 # Use the default VPC to keep this lab focused on secret handling rather than networking.
 data "aws_vpc" "default" {

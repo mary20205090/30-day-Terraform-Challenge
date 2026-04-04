@@ -19,14 +19,14 @@ Day 13 focuses on the three places secrets leak in Terraform and the patterns th
 - decoding the secret JSON with `jsondecode`
 - passing the secrets to an RDS instance at apply time
 - marking secret-related values as `sensitive = true`
-- using local state for this lab so everything can be destroyed after practice
-- documenting the S3 + DynamoDB backend pattern in `backend.tf.example` as the production best practice
+- using a real S3 + DynamoDB remote backend so the state-file risk is covered live
+- creating backend infrastructure first in `day_13/bootstrap`
 
 ## Important Notes
 
 - create the bootstrap secret manually in AWS Secrets Manager first
 - never hardcode provider credentials in Terraform code
 - keep `.terraform/`, `.terraform.lock.hcl`, `*.tfstate`, and `*.tfvars` out of Git
-- this folder intentionally uses local state to match a destroy-after-each-lesson workflow
-- in a real environment, state should live in a protected remote backend because it can still contain secrets in plaintext
-- the best-practice backend example for this lesson is in `backend.tf.example`
+- run `day_13/bootstrap` first to create the S3 bucket and DynamoDB lock table
+- this lesson still supports a full cleanup workflow because the backend resources are dedicated to Day 13
+- destroy order matters: destroy `day_13` first, then destroy `day_13/bootstrap`
