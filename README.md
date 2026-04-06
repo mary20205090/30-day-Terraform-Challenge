@@ -24,8 +24,9 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 | Day 12 | Zero-Downtime Deployments with Terraform | ✅ Completed | [Read](#day-12) |
 | Day 13 | Managing Sensitive Data Securely in Terraform | ✅ Completed | [Read](#day-13) |
 | Day 14 | Working with Multiple Providers - Part 1 | ✅ Completed | [Read](#day-14) |
-| Day 15 | Coming Soon | 🚧 In Progress | - |
-| Day 16 | Coming Soon | ⏳ | - |
+| Day 15 | Working with Multiple Providers - Part 2 | ✅ Completed | [Read](#day-15) |
+| Day 16 | Coming Soon | 🚧 In Progress | - |
+| Day 17 | Coming Soon | ⏳ | - |
 
 ---
 
@@ -73,6 +74,9 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 ### Day 14
 👉 [Working with Multiple Providers - Part 1](https://dev.to/mary_mutua_9d55b3c269f343/getting-started-with-multiple-providers-in-terraform-3g39)
 
+### Day 15
+👉 [Deploying Multi-Cloud Infrastructure with Terraform Modules](https://dev.to/mary_mutua_9d55b3c269f343/deploying-multi-cloud-infrastructure-with-terraform-modules-3a1h)
+
 
 ## 🧠 What I’m Learning
 
@@ -106,6 +110,9 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 - Understanding providers as Terraform plugins  
 - Pinning provider versions and using `.terraform.lock.hcl` safely  
 - Using provider aliases for multi-region and multi-account patterns  
+- Passing aliased providers into reusable modules with `configuration_aliases`  
+- Managing local containers with the Docker provider  
+- Understanding how AWS and Kubernetes providers work together for EKS  
 - Debugging real-world cloud issues  
 - Writing clean, reusable Terraform code  
 
