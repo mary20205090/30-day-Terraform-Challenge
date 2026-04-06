@@ -1,0 +1,38 @@
+# Example only: this file shows the multi-account provider-alias pattern.
+# Leave it as .example unless you really have the target accounts and roles.
+
+provider "aws" {
+  region = "us-east-1"
+  alias  = "production"
+
+  assume_role {
+    role_arn = "arn:aws:iam::111111111111:role/TerraformDeployRole"
+  }
+}
+
+provider "aws" {
+  region = "us-east-1"
+  alias  = "staging"
+
+  assume_role {
+    role_arn = "arn:aws:iam::222222222222:role/TerraformDeployRole"
+  }
+}
+
+data "aws_caller_identity" "production" {
+  provider = aws.production
+}
+
+data "aws_caller_identity" "staging" {
+  provider = aws.staging
+}
+
+output "production_account_id" {
+  description = "Account ID returned by the production provider alias"
+  value       = data.aws_caller_identity.production.account_id
+}
+
+output "staging_account_id" {
+  description = "Account ID returned by the staging provider alias"
+  value       = data.aws_caller_identity.staging.account_id
+}
