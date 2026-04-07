@@ -22,10 +22,36 @@ data "aws_vpc" "default" {
   default = true
 }
 
+data "aws_availability_zones" "available" {
+  state = "available"
+}
+
+data "aws_ec2_instance_type_offerings" "supported" {
+  filter {
+    name   = "instance-type"
+    values = [var.instance_type]
+  }
+
+  location_type = "availability-zone"
+}
+
+locals {
+  # Only use subnets in AZs that support the chosen instance type for this example run.
+  supported_azs = [
+    for az in data.aws_availability_zones.available.names :
+    az if contains(data.aws_ec2_instance_type_offerings.supported.locations, az)
+  ]
+}
+
 data "aws_subnets" "default" {
   filter {
     name   = "vpc-id"
     values = [data.aws_vpc.default.id]
+  }
+
+  filter {
+    name   = "availability-zone"
+    values = local.supported_azs
   }
 }
 

@@ -1,6 +1,7 @@
 package test
 
 import (
+	"strings"
 	"testing"
 	"time"
 
@@ -30,5 +31,8 @@ func TestHelloWorldApp(t *testing.T) {
 	albDnsName := terraform.Output(t, terraformOptions, "alb_dns_name")
 	url := "http://" + albDnsName
 
-	http_helper.HttpGetWithRetry(t, url, nil, 200, "Hello from Day 16", 30, 10*time.Second)
+	// The app returns a small HTML page, so validate by status code plus a body substring.
+	http_helper.HttpGetWithRetryWithCustomValidation(t, url, nil, 60, 10*time.Second, func(statusCode int, body string) bool {
+		return statusCode == 200 && strings.Contains(body, "Hello from Day 16")
+	})
 }
