@@ -79,7 +79,7 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 👉 [Deploying Multi-Cloud Infrastructure with Terraform Modules](https://dev.to/mary_mutua_9d55b3c269f343/deploying-multi-cloud-infrastructure-with-terraform-modules-3a1h)
 
 ### Day 16
-👉 Building Production-Grade Infrastructure
+👉 [Creating Production-Grade Infrastructure with Terraform](https://dev.to/mary_mutua_9d55b3c269f343/creating-production-grade-infrastructure-with-terraform-255)
 
 
 ## 🧠 What I’m Learning
@@ -119,7 +119,7 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 - Understanding how AWS and Kubernetes providers work together for EKS  
 - Refactoring Terraform into small, composable, testable modules  
 - Auditing infrastructure against a production-grade checklist  
-- Testing reusable modules through example root modules and manual verification  
+- Testing reusable modules through example root modules, manual verification, and Terratest  
 - Debugging real-world cloud issues  
 - Writing clean, reusable Terraform code  
 
