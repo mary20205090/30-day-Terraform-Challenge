@@ -545,3 +545,95 @@ Ask:
 - "What production-grade checklist items are still missing?"
 
 That is the real Day 16 shift.
+
+## Day 16 Refactor Done in This Folder
+
+This folder now contains a standalone production-grade refactor of the earlier webserver-cluster idea.
+
+### New structure
+
+- `modules/cluster/asg-rolling-deploy`
+  - reusable ASG module
+- `modules/networking/alb`
+  - reusable ALB module
+- `modules/services/hello-world-app`
+  - app module that composes the ALB and ASG modules
+- `examples/hello-world-app`
+  - example root module and manual test harness
+- `test/hello_world_app_test.go`
+  - Terratest example
+
+## How This Refactor Closes the Checklist Gaps
+
+### Code structure
+
+Closed today:
+
+- large module split into three smaller modules
+- variables now have types, descriptions, and validation
+- outputs are defined in every module
+- repeated tags are centralized in `locals`
+- example root module kept separate from reusable modules
+
+### Reliability
+
+Closed today:
+
+- ASG health checks use `ELB`
+- launch template and ASG use `create_before_destroy`
+- names use `name_prefix` where safe replacement matters
+- critical resources can use `prevent_destroy`, but it must be set directly in the resource lifecycle block rather than passed in as a normal variable
+
+### Security
+
+Closed today:
+
+- no secrets added to module code
+- security group ingress to the app only allows traffic from the ALB security group
+- backend best-practice example added in `examples/hello-world-app/backend.tf.example`
+
+Partially addressed:
+
+- real remote backend IAM enforcement is documented as an example, not applied live here
+
+### Observability
+
+Closed today:
+
+- common tags include `Environment`, `ManagedBy`, `Project`, and `Owner`
+- CloudWatch CPU alarm added for the ASG
+- SNS topic added for alert routing
+
+### Maintainability
+
+Closed today:
+
+- every Day 16 module has a README
+- provider versions are pinned
+- example usage exists
+- Terratest example added
+
+Partially addressed:
+
+- because this is a local challenge repo, module sources in the example use local paths instead of versioned git tags
+- in a real modules repo, published examples should pin versioned tags
+
+## Suggested Run Order
+
+If you want to test the refactor later, use the example harness:
+
+```bash
+cd day_16/examples/hello-world-app
+terraform init
+terraform validate
+terraform plan
+terraform apply
+terraform output
+terraform destroy
+```
+
+If you want to inspect the test only:
+
+```bash
+sed -n '1,220p' day_16/test/hello_world_app_test.go
+```

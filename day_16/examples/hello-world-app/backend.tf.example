@@ -1,0 +1,13 @@
+# Example only: production-grade infrastructure should store state remotely.
+# Rename this to backend.tf and replace the placeholder values if you want
+# this example to use a real remote backend.
+
+terraform {
+  backend "s3" {
+    bucket         = "your-terraform-state-bucket"
+    key            = "day_16/hello-world-app/terraform.tfstate"
+    region         = "us-east-1"
+    dynamodb_table = "your-terraform-state-locks"
+    encrypt        = true
+  }
+}

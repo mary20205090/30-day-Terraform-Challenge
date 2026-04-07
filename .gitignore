@@ -32,3 +32,6 @@ Thumbs.db
 
 # Allow today's lock file to be committed for Day 14 provider version tracking
 !day_14/.terraform.lock.hcl
+
+# Allow today's lock file to be committed for Day 16 production-grade refactor
+!day_16/examples/hello-world-app/.terraform.lock.hcl
