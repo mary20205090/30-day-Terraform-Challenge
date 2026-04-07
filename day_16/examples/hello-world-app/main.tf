@@ -17,6 +17,7 @@ provider "aws" {
   region = var.region
 }
 
+# Use the default VPC to keep the Day 16 example lightweight and easy to rerun.
 data "aws_vpc" "default" {
   default = true
 }
@@ -32,6 +33,7 @@ resource "random_id" "suffix" {
   byte_length = 3
 }
 
+# Treat this example like a real consumer of the reusable service module.
 module "hello_world_app" {
   source = "../../modules/services/hello-world-app"
 

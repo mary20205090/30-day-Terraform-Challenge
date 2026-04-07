@@ -618,6 +618,43 @@ Partially addressed:
 - because this is a local challenge repo, module sources in the example use local paths instead of versioned git tags
 - in a real modules repo, published examples should pin versioned tags
 
+## How Day 16 Was Tested
+
+The Day 16 refactor was tested through the runnable example root module in:
+
+- `day_16/examples/hello-world-app`
+
+That example acts as:
+
+- the root module
+- a manual test harness
+- executable documentation for the reusable modules
+
+Run flow used today:
+
+```bash
+cd day_16/examples/hello-world-app
+terraform init
+terraform validate
+terraform plan
+terraform apply
+terraform output
+terraform destroy
+```
+
+What was confirmed:
+
+- Terraform successfully planned and applied the refactored infrastructure
+- the ALB DNS name was returned from outputs
+- opening the ALB URL in the browser showed `Hello from Day 16`
+- all resources were destroyed after verification
+
+Terratest note:
+
+- `test/hello_world_app_test.go` was added as the automated test example
+- Go/Terratest was not run live today
+- today’s live verification was done with the example harness plus browser confirmation
+
 ## Suggested Run Order
 
 If you want to test the refactor later, use the example harness:

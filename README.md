@@ -25,8 +25,9 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 | Day 13 | Managing Sensitive Data Securely in Terraform | ✅ Completed | [Read](#day-13) |
 | Day 14 | Working with Multiple Providers - Part 1 | ✅ Completed | [Read](#day-14) |
 | Day 15 | Working with Multiple Providers - Part 2 | ✅ Completed | [Read](#day-15) |
-| Day 16 | Coming Soon | 🚧 In Progress | - |
-| Day 17 | Coming Soon | ⏳ | - |
+| Day 16 | Building Production-Grade Infrastructure | ✅ Completed | [Read](#day-16) |
+| Day 17 | Coming Soon | 🚧 In Progress | - |
+| Day 18 | Coming Soon | ⏳ | - |
 
 ---
 
@@ -77,6 +78,9 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 ### Day 15
 👉 [Deploying Multi-Cloud Infrastructure with Terraform Modules](https://dev.to/mary_mutua_9d55b3c269f343/deploying-multi-cloud-infrastructure-with-terraform-modules-3a1h)
 
+### Day 16
+👉 Building Production-Grade Infrastructure
+
 
 ## 🧠 What I’m Learning
 
@@ -113,6 +117,9 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 - Passing aliased providers into reusable modules with `configuration_aliases`  
 - Managing local containers with the Docker provider  
 - Understanding how AWS and Kubernetes providers work together for EKS  
+- Refactoring Terraform into small, composable, testable modules  
+- Auditing infrastructure against a production-grade checklist  
+- Testing reusable modules through example root modules and manual verification  
 - Debugging real-world cloud issues  
 - Writing clean, reusable Terraform code  
 

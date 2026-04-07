@@ -10,6 +10,7 @@ terraform {
 }
 
 locals {
+  # This module keeps its own minimal tag set so it can be reused independently.
   common_tags = {
     Environment = var.environment
     ManagedBy   = "terraform"
@@ -35,6 +36,7 @@ resource "aws_security_group" "alb" {
 resource "aws_vpc_security_group_ingress_rule" "http" {
   for_each = toset(var.allowed_cidr_blocks)
 
+  # Create one ingress rule per allowed CIDR instead of hardcoding a single source.
   security_group_id = aws_security_group.alb.id
   cidr_ipv4         = each.value
   from_port         = 80
@@ -64,6 +66,7 @@ resource "aws_lb_listener" "http" {
   port              = 80
   protocol          = "HTTP"
 
+  # A fixed 404 keeps the ALB safe by default until a service-specific rule is attached.
   default_action {
     type = "fixed-response"
 

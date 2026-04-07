@@ -26,6 +26,7 @@ data "aws_ami" "ubuntu" {
   most_recent = true
   owners      = [var.ami_owner]
 
+  # Resolve the AMI at plan/apply time so the module stays reusable across accounts.
   filter {
     name   = "name"
     values = [var.ami_name_pattern]
@@ -73,6 +74,7 @@ resource "aws_launch_template" "this" {
     enabled = var.enable_detailed_monitoring
   }
 
+  # Tag launched instances here because the launch template owns the EC2 settings.
   tag_specifications {
     resource_type = "instance"
 
@@ -101,6 +103,7 @@ resource "aws_autoscaling_group" "this" {
     version = "$Latest"
   }
 
+  # ASG tags must be declared explicitly so they propagate to new instances.
   tag {
     key                 = "Name"
     value               = "${var.cluster_name}-instance"

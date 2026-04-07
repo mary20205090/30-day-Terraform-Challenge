@@ -10,6 +10,7 @@ terraform {
 }
 
 locals {
+  # Keep tag defaults in one place so the composed modules stay consistent.
   common_tags = merge(
     {
       Environment = var.environment
@@ -39,6 +40,7 @@ resource "aws_lb_target_group" "app" {
   protocol    = "HTTP"
   vpc_id      = var.vpc_id
 
+  # Keep the health check simple and fast so the ALB can detect bad instances quickly.
   health_check {
     path                = "/"
     protocol            = "HTTP"
@@ -80,6 +82,7 @@ module "asg" {
 }
 
 resource "aws_lb_listener_rule" "app" {
+  # Route all HTTP paths from the shared listener to this app's target group.
   listener_arn = module.alb.alb_http_listener_arn
   priority     = 100
 
