@@ -26,8 +26,9 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 | Day 14 | Working with Multiple Providers - Part 1 | ✅ Completed | [Read](#day-14) |
 | Day 15 | Working with Multiple Providers - Part 2 | ✅ Completed | [Read](#day-15) |
 | Day 16 | Building Production-Grade Infrastructure | ✅ Completed | [Read](#day-16) |
-| Day 17 | Coming Soon | 🚧 In Progress | - |
-| Day 18 | Coming Soon | ⏳ | - |
+| Day 17 | Manual Testing of Terraform Code | ✅ Completed | [Read](#day-17) |
+| Day 18 | Coming Soon | 🚧 In Progress | - |
+| Day 19 | Coming Soon | ⏳ | - |
 
 ---
 
@@ -81,6 +82,9 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 ### Day 16
 👉 [Creating Production-Grade Infrastructure with Terraform](https://dev.to/mary_mutua_9d55b3c269f343/creating-production-grade-infrastructure-with-terraform-255)
 
+### Day 17
+👉 [Manual Testing of Terraform Code](PASTE_YOUR_DAY17_DEVTO_LINK_HERE)
+
 
 ## 🧠 What I’m Learning
 
@@ -120,6 +124,9 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 - Refactoring Terraform into small, composable, testable modules  
 - Auditing infrastructure against a production-grade checklist  
 - Testing reusable modules through example root modules, manual verification, and Terratest  
+- Building structured manual test checklists for Terraform environments  
+- Comparing manual test behavior across dev and production environments  
+- Treating cleanup and post-destroy verification as part of the test itself  
 - Debugging real-world cloud issues  
 - Writing clean, reusable Terraform code  
 

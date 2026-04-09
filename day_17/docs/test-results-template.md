@@ -1,5 +1,7 @@
 DAY 17 TEST RESULTS
 
+Reusable template for recording future manual Terraform test runs.
+
 Environment:
 Folder:
 Date:
