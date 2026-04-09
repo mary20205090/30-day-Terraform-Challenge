@@ -9,6 +9,7 @@
 # Crash logs
 crash.log
 day_16/test/terratest.log
+day_18/test/terratest.log
 
 # Sensitive variable files
 *.tfvars
@@ -40,3 +41,8 @@ Thumbs.db
 # Allow today's lock files to be committed for Day 17 manual testing environments
 !day_17/environments/dev/.terraform.lock.hcl
 !day_17/environments/production/.terraform.lock.hcl
+
+# Allow today's lock files to be committed for Day 18 automated testing
+!day_18/modules/services/webserver-cluster/.terraform.lock.hcl
+!day_18/examples/webserver-cluster/.terraform.lock.hcl
+!day_18/examples/full-stack/.terraform.lock.hcl
