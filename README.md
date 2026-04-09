@@ -83,7 +83,7 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 👉 [Creating Production-Grade Infrastructure with Terraform](https://dev.to/mary_mutua_9d55b3c269f343/creating-production-grade-infrastructure-with-terraform-255)
 
 ### Day 17
-👉 [Manual Testing of Terraform Code](PASTE_YOUR_DAY17_DEVTO_LINK_HERE)
+👉 [Manual Testing of Terraform Code](https://dev.to/mary_mutua_9d55b3c269f343/the-importance-of-manual-testing-in-terraform-44ol)
 
 
 ## 🧠 What I’m Learning
