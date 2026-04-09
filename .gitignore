@@ -36,3 +36,7 @@ Thumbs.db
 
 # Allow today's lock file to be committed for Day 16 production-grade refactor
 !day_16/examples/hello-world-app/.terraform.lock.hcl
+
+# Allow today's lock files to be committed for Day 17 manual testing environments
+!day_17/environments/dev/.terraform.lock.hcl
+!day_17/environments/production/.terraform.lock.hcl
