@@ -1,6 +1,6 @@
 # Day 19: Adopting Infrastructure as Code in Your Team
 
-## Chapter 10 Notes (Adopting IaC in Your Team)
+## Chapter 10 Notes (Adopting IaC in Your Team — Yevgeniy Brikman)
 
 This section is about the people and process changes needed to make IaC stick.
 The core message is that tooling alone is not enough. Successful adoption
