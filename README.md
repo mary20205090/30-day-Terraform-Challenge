@@ -28,8 +28,9 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 | Day 16 | Building Production-Grade Infrastructure | ✅ Completed | [Read](#day-16) |
 | Day 17 | Manual Testing of Terraform Code | ✅ Completed | [Read](#day-17) |
 | Day 18 | Automated Testing of Terraform Code | ✅ Completed | [Read](#day-18) |
-| Day 19 | Coming Soon | 🚧 In Progress | - |
-| Day 20 | Coming Soon | ⏳ | - |
+| Day 19 | Adopting Infrastructure as Code in Your Team | ✅ Completed | [Read](#day-19) |
+| Day 20 | Coming Soon | 🚧 In Progress | - |
+| Day 21 | Coming Soon | ⏳ | - |
 
 ---
 
@@ -89,6 +90,8 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 ### Day 18
 👉 [The Importance of Automated Testing in Terraform](PASTE_YOUR_DAY18_DEVTO_LINK_HERE)
 
+### Day 19
+👉 [How to Convince Your Team to Adopt Infrastructure as Code](https://dev.to/mary_mutua_9d55b3c269f343/how-to-convince-your-team-to-adopt-infrastructure-as-code-8bf)
 
 ## 🧠 What I’m Learning
 
@@ -134,6 +137,9 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 - Mapping Terraform tests into unit, integration, and end-to-end layers  
 - Using native `terraform test` and Terratest together in one workflow  
 - Running Terraform tests automatically with GitHub Actions  
+- Leading IaC adoption with business outcomes, not tooling features  
+- Working incrementally to avoid high-risk migrations  
+- Giving teams time and safety to learn to prevent drift back to manual changes  
 - Debugging real-world cloud issues  
 - Writing clean, reusable Terraform code  
 
