@@ -29,7 +29,7 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 | Day 17 | Manual Testing of Terraform Code | ✅ Completed | [Read](#day-17) |
 | Day 18 | Automated Testing of Terraform Code | ✅ Completed | [Read](#day-18) |
 | Day 19 | Adopting Infrastructure as Code in Your Team | ✅ Completed | [Read](#day-19) |
-| Day 20 | Coming Soon | 🚧 In Progress | - |
+| Day 20 | Workflow for Deploying Application Code | ✅ Completed | [Read](#day-20) |
 | Day 21 | Coming Soon | ⏳ | - |
 
 ---
@@ -93,6 +93,9 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 ### Day 19
 👉 [How to Convince Your Team to Adopt Infrastructure as Code](https://dev.to/mary_mutua_9d55b3c269f343/how-to-convince-your-team-to-adopt-infrastructure-as-code-8bf)
 
+### Day 20
+👉 [Workflow for Deploying Application Code](PASTE_YOUR_DAY20_DEVTO_LINK_HERE)
+
 ## 🧠 What I’m Learning
 
 - Terraform fundamentals (provider & resource blocks)  
@@ -140,6 +143,7 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 - Leading IaC adoption with business outcomes, not tooling features  
 - Working incrementally to avoid high-risk migrations  
 - Giving teams time and safety to learn to prevent drift back to manual changes  
+- Mapping the 7-step application deployment workflow to Terraform delivery and release practices  
 - Debugging real-world cloud issues  
 - Writing clean, reusable Terraform code  
 
