@@ -21,7 +21,7 @@ locals {
 
 resource "aws_security_group" "alb" {
   name_prefix = "${var.alb_name}-"
-  description = "Security group for the Day 18 application load balancer"
+  description = "Security group for the Day 20 application load balancer"
   vpc_id      = var.vpc_id
 
   lifecycle {
