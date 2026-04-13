@@ -5,6 +5,7 @@
 # Terraform state files (VERY IMPORTANT to ignore)
 *.tfstate
 *.tfstate.*
+*.tfplan
 
 # Crash logs
 crash.log
