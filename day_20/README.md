@@ -13,8 +13,8 @@ Reference: Chapter 10 of *Terraform: Up & Running* (Yevgeniy Brikman), section *
 ## Task 3: Seven-Step Workflow Simulation
 
 ### Step 1: Version control
-What: keep Terraform in Git and use PR-only merges to `main`.
-Why: infra changes need review and traceability.
+What: Keep Terraform in Git and use PR-only merges to `main`.
+Why: Infrastructure changes need review and traceability.
 
 Manual check in GitHub:
 - `Settings -> Branches -> Branch protection rules -> main`
@@ -71,6 +71,10 @@ terraform -chdir=day_20/modules/services/webserver-cluster test
 Result:
 - `4 passed, 0 failed`
 
+Note:
+- Unit tests are module-local via `.tftest.hcl` in `day_20/modules/services/webserver-cluster`.
+- A separate `test/` folder is not required for native `terraform test`.
+
 PR check expectation:
 - GitHub Actions runs unit tests on PR.
 - Integration + E2E run on push/merge to `main` (per your Day 18 workflow policy).
@@ -101,7 +105,12 @@ Cleanup after validation:
 
 ```bash
 terraform -chdir=day_20/live/dev destroy
+aws ec2 describe-instances --filters "Name=tag:ManagedBy,Values=terraform" "Name=instance-state-name,Values=pending,running,stopping,stopped" --query "Reservations[*].Instances[*].InstanceId"
+aws elbv2 describe-load-balancers --query "LoadBalancers[*].LoadBalancerArn"
 ```
+
+Expected after cleanup:
+- Both AWS queries should return `[]`.
 
 ## Task 4: Terraform Cloud Setup
 
@@ -158,7 +167,7 @@ module "webserver_cluster" {
 | 1. Version control | Git for source code | Git for `.tf` files | State file is NOT in Git |
 | 2. Run locally | `npm start` / `python app.py` | `terraform plan` | Plan previews change; no running app |
 | 3. Make changes | Edit source files | Edit `.tf` files | Changes affect real cloud resources |
-| 4. Review | Code diff in PR | Plan output in PR | Reviewer must understand infra impact |
+| 4. Review | Code diff in PR | Plan output in PR | Reviewer must understand infrastructure impact |
 | 5. Automated tests | Unit tests, linting | `terraform test`, Terratest | Infra tests may create paid resources |
 | 6. Merge and release | Merge + tag | Merge + tag | Module consumers pin versions |
 | 7. Deploy | CI/CD pipeline | `terraform apply` | Apply needs trusted, locked environment |
