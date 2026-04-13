@@ -30,7 +30,7 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 | Day 18 | Automated Testing of Terraform Code | ✅ Completed | [Read](#day-18) |
 | Day 19 | Adopting Infrastructure as Code in Your Team | ✅ Completed | [Read](#day-19) |
 | Day 20 | Workflow for Deploying Application Code | ✅ Completed | [Read](#day-20) |
-| Day 21 | Coming Soon | ⏳ | - |
+| Day 21 | Coming Soon | 🚧 In Progress | - |
 
 ---
 
@@ -88,13 +88,13 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 👉 [Manual Testing of Terraform Code](https://dev.to/mary_mutua_9d55b3c269f343/the-importance-of-manual-testing-in-terraform-44ol)
 
 ### Day 18
-👉 [The Importance of Automated Testing in Terraform](PASTE_YOUR_DAY18_DEVTO_LINK_HERE)
+👉 [The Importance of Automated Testing in Terraform](https://dev.to/mary_mutua_9d55b3c269f343/automating-terraform-testing-from-unit-tests-to-end-to-end-validation-2e44)
 
 ### Day 19
 👉 [How to Convince Your Team to Adopt Infrastructure as Code](https://dev.to/mary_mutua_9d55b3c269f343/how-to-convince-your-team-to-adopt-infrastructure-as-code-8bf)
 
 ### Day 20
-👉 [Workflow for Deploying Application Code](PASTE_YOUR_DAY20_DEVTO_LINK_HERE)
+👉 [Workflow for Deploying Application Code](https://dev.to/mary_mutua_9d55b3c269f343/a-workflow-for-deploying-application-code-with-terraform-2n43)
 
 ## 🧠 What I’m Learning
 
