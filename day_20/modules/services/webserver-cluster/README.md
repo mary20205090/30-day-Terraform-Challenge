@@ -1,6 +1,6 @@
 # Webserver Cluster Module
 
-Composes the Day 18 networking and ASG modules into a reusable webserver
+Composes the Day 20 networking and ASG modules into a reusable webserver
 cluster with:
 
 - shared tagging

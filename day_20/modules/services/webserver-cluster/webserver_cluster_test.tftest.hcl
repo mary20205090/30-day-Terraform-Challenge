@@ -3,7 +3,7 @@ mock_provider "aws" {}
 variables {
   cluster_name     = "test-cluster"
   environment      = "dev"
-  project_name     = "day18-automated-testing"
+  project_name     = "day20-workflow"
   team_name        = "EveOps"
   instance_type    = "t3.micro"
   min_size         = 1
@@ -12,7 +12,7 @@ variables {
   vpc_id           = "vpc-12345678"
   subnet_ids       = ["subnet-11111111", "subnet-22222222"]
   server_port      = 8080
-  server_text      = "Hello from Day 18"
+  server_text      = "Hello from Day 20"
 }
 
 run "validate_asg_name_prefix" {
