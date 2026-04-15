@@ -1,0 +1,45 @@
+name: Day 21 Infrastructure Checks
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "day_21/**"
+      - ".github/workflows/day21-infrastructure-checks.yml"
+  push:
+    branches: [main]
+    paths:
+      - "day_21/**"
+      - ".github/workflows/day21-infrastructure-checks.yml"
+  workflow_dispatch:
+
+jobs:
+  terraform-checks:
+    name: fmt, validate, and test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.14.7
+
+      - name: Check Terraform formatting
+        run: terraform fmt -check -recursive day_21
+
+      - name: Init Day 21 dev root
+        working-directory: day_21/live/dev
+        run: terraform init -backend=false
+
+      - name: Validate Day 21 dev root
+        working-directory: day_21/live/dev
+        run: terraform validate
+
+      - name: Init Day 21 webserver module
+        working-directory: day_21/modules/services/webserver-cluster
+        run: terraform init -backend=false
+
+      - name: Run Day 21 native Terraform tests
+        working-directory: day_21/modules/services/webserver-cluster
+        run: terraform test
