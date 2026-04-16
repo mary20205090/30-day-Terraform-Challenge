@@ -179,6 +179,23 @@ Extra safeguards:
 - review plan output before apply
 - preserve errored state files if an apply fails
 
+## Why The Terraform Plan Matters
+
+The Terraform plan is the infrastructure review artifact. The `.tf` files show
+the desired configuration, but the plan shows what Terraform will actually do
+to real cloud resources.
+
+For Day 21, the plan answered the most important review questions:
+- how many resources will be created, changed, or destroyed?
+- is Terraform touching only the intended Day 21 dev resources?
+- are there any unexpected destroys?
+- does the plan match the PR description and blast-radius notes?
+
+The saved plan file, such as `day21.tfplan`, pins the exact actions Terraform
+calculated at plan time. Applying a saved plan is safer than running a fresh
+`terraform apply`, because it avoids applying something different from what was
+reviewed.
+
 ## Day 21 Implementation
 
 Day 21 creates a standalone dev webserver cluster and adds one extra
@@ -217,11 +234,47 @@ terraform -chdir=day_21/live/dev output
 curl -s http://$(terraform -chdir=day_21/live/dev output -raw alb_dns_name)
 ```
 
+## Stale Plan Lesson
+
+After the PR merge, the original saved plan could not be applied:
+
+```text
+Error: Saved plan is stale
+```
+
+This means the plan was created against an older state snapshot, so Terraform
+could no longer guarantee that applying it would match the reviewed state. This
+is a safety feature, not a failure.
+
+The fix was to create a new saved plan from the current state:
+
+```bash
+terraform -chdir=day_21/live/dev workspace select dev
+terraform -chdir=day_21/live/dev plan -out=day21-reviewed.tfplan
+```
+
+The regenerated plan still matched the PR intent:
+- `16 to add`
+- `0 to change`
+- `0 to destroy`
+
+Then the reviewed plan was applied:
+
+```bash
+terraform -chdir=day_21/live/dev apply day21-reviewed.tfplan
+```
+
+Verification completed:
+- browser returned `Hello from Day 21 infrastructure workflow`
+- CloudWatch returned the Day 21 ASG capacity alarm
+- `terraform plan` returned `No changes`
+- resources were destroyed after the test
+
 Post-destroy verification, if the lab is destroyed:
 
 ```bash
 aws ec2 describe-instances --filters "Name=tag:Project,Values=day21-infra-workflow" "Name=instance-state-name,Values=pending,running,stopping,stopped" --query "Reservations[*].Instances[*].InstanceId"
-aws elbv2 describe-load-balancers --query "LoadBalancers[*].LoadBalancerArn"
+aws elbv2 describe-load-balancers --query "LoadBalancers[?contains(LoadBalancerName, 'day21')].LoadBalancerArn"
 ```
 
 Expected cleanup result:

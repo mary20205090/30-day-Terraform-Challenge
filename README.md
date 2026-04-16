@@ -30,7 +30,8 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 | Day 18 | Automated Testing of Terraform Code | ✅ Completed | [Read](#day-18) |
 | Day 19 | Adopting Infrastructure as Code in Your Team | ✅ Completed | [Read](#day-19) |
 | Day 20 | Workflow for Deploying Application Code | ✅ Completed | [Read](#day-20) |
-| Day 21 | Coming Soon | 🚧 In Progress | - |
+| Day 21 | Workflow for Deploying Infrastructure Code | ✅ Completed | [Read](#day-21) |
+| Day 22 | Coming Soon | 🚧 In Progress | - |
 
 ---
 
@@ -96,6 +97,9 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 ### Day 20
 👉 [Workflow for Deploying Application Code](https://dev.to/mary_mutua_9d55b3c269f343/a-workflow-for-deploying-application-code-with-terraform-2n43)
 
+### Day 21
+👉 [Workflow for Deploying Infrastructure Code](https://dev.to/mary_mutua_9d55b3c269f343/a-workflow-for-deploying-infrastructure-code-with-terraform-1m24)
+
 ## 🧠 What I’m Learning
 
 - Terraform fundamentals (provider & resource blocks)  
@@ -144,6 +148,10 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 - Working incrementally to avoid high-risk migrations  
 - Giving teams time and safety to learn to prevent drift back to manual changes  
 - Mapping the 7-step application deployment workflow to Terraform delivery and release practices  
+- Deploying infrastructure changes through PR review, saved plans, release tags, and verified apply  
+- Understanding why stale Terraform plans are a safety feature, not a failure  
+- Documenting blast radius and rollback plans for infrastructure pull requests  
+- Using policy-as-code concepts with Sentinel to guard infrastructure changes  
 - Debugging real-world cloud issues  
 - Writing clean, reusable Terraform code  
 
