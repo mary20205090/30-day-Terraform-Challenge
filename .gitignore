@@ -51,3 +51,7 @@ Thumbs.db
 # Allow today's lock files to be committed for Day 21 infrastructure workflow checks
 !day_21/live/dev/.terraform.lock.hcl
 !day_21/modules/services/webserver-cluster/.terraform.lock.hcl
+
+# Allow today's lock files to be committed for Day 22 integrated workflow
+!day_22/live/staging/.terraform.lock.hcl
+!day_22/modules/services/webserver-cluster/.terraform.lock.hcl
