@@ -31,7 +31,8 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 | Day 19 | Adopting Infrastructure as Code in Your Team | ✅ Completed | [Read](#day-19) |
 | Day 20 | Workflow for Deploying Application Code | ✅ Completed | [Read](#day-20) |
 | Day 21 | Workflow for Deploying Infrastructure Code | ✅ Completed | [Read](#day-21) |
-| Day 22 | Putting It All Together: Completing the Book and Reflecting on the Journey | 🚧 In Progress | [Add link](#day-22) |
+| Day 22 | Putting It All Together: Completing the Book and Reflecting on the Journey | ✅ Completed | [Read](#day-22) |
+| Day 23 | Coming Next | 🚧 In Progress | [Add link](#day-23) |
 
 ---
 
@@ -101,7 +102,7 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 👉 [Workflow for Deploying Infrastructure Code](https://dev.to/mary_mutua_9d55b3c269f343/a-workflow-for-deploying-infrastructure-code-with-terraform-1m24)
 
 ### Day 22
-👉 [Putting It All Together: Completing the Book and Reflecting on the Journey](#)
+👉 [Putting It All Together: Completing the Book and Reflecting on the Journey](https://dev.to/mary_mutua_9d55b3c269f343/putting-it-all-together-application-and-infrastructure-workflows-with-terraform-59f2)
 
 ## 🧠 What I’m Learning
 
