@@ -1,0 +1,25 @@
+import "tfplan/v2" as tfplan
+
+taggable_resource_types = [
+  "aws_cloudwatch_metric_alarm",
+  "aws_launch_template",
+  "aws_lb",
+  "aws_lb_target_group",
+  "aws_security_group",
+  "aws_sns_topic",
+]
+
+main = rule {
+  all tfplan.resource_changes as _, rc {
+    rc.mode is not "managed" or
+    rc.type not in taggable_resource_types or
+    (
+      rc.change.after.tags is not null and
+      rc.change.after.tags["ManagedBy"] is "terraform"
+    ) or
+    (
+      rc.change.after.tags_all is not null and
+      rc.change.after.tags_all["ManagedBy"] is "terraform"
+    )
+  }
+}

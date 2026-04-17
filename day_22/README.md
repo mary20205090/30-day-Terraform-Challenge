@@ -213,3 +213,95 @@ The practices from Days 16-21 should continue into the rest of the challenge:
 
 This finishes the book, but it does not finish the learning. The next step is
 turning these patterns into habits.
+
+## Day 22 Lab Implementation
+
+This folder now contains a standalone Day 22 staging stack and workflow:
+
+- `live/staging`: the Day 22 root module for the integrated workflow lab
+- `modules`: reusable Day 22 modules copied forward and renamed from the Day 21 pattern
+- `docs`: workflow comparison, integrated workflow notes, and reflection
+- `sentinel`: policy-as-code examples for Terraform Cloud
+- `.github/workflows/day22-infrastructure-ci.yml`: PR checks and saved plan artifact
+
+The stack creates a small webserver cluster behind an ALB and includes the
+production habits from previous days: shared tags, validation, lifecycle rules,
+CloudWatch alarms, reusable modules, saved plan review, and cleanup commands.
+
+## How To Test Day 22 Locally
+
+Start with the cheap checks:
+
+```bash
+terraform -chdir=day_22/live/staging init
+terraform -chdir=day_22/live/staging validate
+terraform -chdir=day_22/modules/services/webserver-cluster init -backend=false
+terraform -chdir=day_22/modules/services/webserver-cluster test
+```
+
+Then create the reviewed plan:
+
+```bash
+terraform -chdir=day_22/live/staging plan -out=day22.tfplan
+terraform -chdir=day_22/live/staging show -no-color day22.tfplan
+```
+
+Only apply after reviewing the saved plan:
+
+```bash
+terraform -chdir=day_22/live/staging apply day22.tfplan
+```
+
+Destroy immediately after the lab to avoid AWS costs:
+
+```bash
+terraform -chdir=day_22/live/staging destroy
+```
+
+## Integrated CI Pipeline
+
+The Day 22 GitHub Actions workflow runs on pull requests that touch `day_22`.
+
+It has two jobs:
+
+1. `validate`: runs `terraform fmt -check`, `terraform validate`, and native
+   `terraform test`.
+2. `plan`: runs after validation, creates `ci.tfplan`, and uploads it as an
+   immutable review artifact.
+
+That plan artifact is not applied automatically. Apply should still happen from
+a trusted, approved environment.
+
+## Remote State And Locking
+
+`live/staging/backend.tf.example` documents the S3 backend with DynamoDB
+locking. It is intentionally an example file so this lab does not accidentally
+migrate state before the real bucket and lock table exist.
+
+`live/staging/cloud.tf.example` shows the Terraform Cloud alternative. Terraform
+Cloud provides remote state, locking, run history, policy checks, approvals, and
+cost estimation.
+
+## Sentinel And Cost Gates
+
+The `sentinel` folder includes:
+
+- `require-instance-type.sentinel`: blocks unapproved EC2 instance types
+- `require-terraform-tag.sentinel`: requires `ManagedBy = "terraform"` tags
+- `cost-check.sentinel`: blocks applies when the monthly cost increase is too high
+
+These policies are enforcement rules for Terraform Cloud/Enterprise. They are
+stronger than `terraform validate` because they decide whether a valid plan is
+allowed by the organization.
+
+## Important Nuance About Immutable Plans
+
+A saved `.tfplan` is immutable, but it is also tied to the exact workspace and
+state snapshot where it was generated. The safest real-world pattern is:
+
+- promote the same tagged Terraform module/configuration version across environments
+- generate and review a saved plan for each target workspace
+- apply exactly the reviewed plan for that workspace
+
+This keeps the "same artifact" principle without pretending a staging plan file
+can safely be applied to production state.

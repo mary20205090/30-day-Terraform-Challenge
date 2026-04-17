@@ -1,0 +1,11 @@
+# Terraform Cloud alternative to the S3 backend above.
+# Copy this to cloud.tf only after replacing the organization and workspace.
+terraform {
+  cloud {
+    organization = "your-org-name"
+
+    workspaces {
+      name = "day22-integrated-staging"
+    }
+  }
+}

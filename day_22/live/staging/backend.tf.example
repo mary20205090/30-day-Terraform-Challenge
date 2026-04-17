@@ -1,0 +1,12 @@
+# Copy this file to backend.tf after creating the real S3 bucket and DynamoDB
+# table. Keeping it as an example prevents accidental state migration during
+# the lab while still documenting the production backend pattern.
+terraform {
+  backend "s3" {
+    bucket         = "your-terraform-state-bucket"
+    key            = "day_22/staging/terraform.tfstate"
+    region         = "us-east-1"
+    dynamodb_table = "your-terraform-state-locks"
+    encrypt        = true
+  }
+}
