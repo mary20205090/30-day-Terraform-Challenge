@@ -32,7 +32,8 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 | Day 20 | Workflow for Deploying Application Code | ✅ Completed | [Read](#day-20) |
 | Day 21 | Workflow for Deploying Infrastructure Code | ✅ Completed | [Read](#day-21) |
 | Day 22 | Putting It All Together: Completing the Book and Reflecting on the Journey | ✅ Completed | [Read](#day-22) |
-| Day 23 | Exam Preparation — Brushing Up on Key Terraform Concepts | 🚧 In Progress | [Add link](#day-23) |
+| Day 23 | Exam Preparation — Brushing Up on Key Terraform Concepts | ✅ Completed | [Read](#day-23) |
+| Day 24 | Final Exam Review and Certification Focus | 🚧 In Progress |
 
 ---
 
@@ -103,6 +104,9 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 
 ### Day 22
 👉 [Putting It All Together: Completing the Book and Reflecting on the Journey](https://dev.to/mary_mutua_9d55b3c269f343/putting-it-all-together-application-and-infrastructure-workflows-with-terraform-59f2)
+
+### Day 23
+👉 [Preparing for the Terraform Associate Exam — Key Resources and Tips](https://dev.to/mary_mutua_9d55b3c269f343/preparing-for-the-terraform-associate-exam-key-resources-and-tips-1lk)
 
 ## 🧠 What I’m Learning
 
