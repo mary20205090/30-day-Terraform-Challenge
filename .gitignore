@@ -16,6 +16,9 @@ day_18/test/terratest.log
 *.tfvars
 *.tfvars.json
 
+# Day 25 lab tfvars contains only non-sensitive demo inputs.
+!day_25/day25-static-website/envs/dev/terraform.tfvars
+
 # Override files
 override.tf
 override.tf.json
@@ -55,3 +58,7 @@ Thumbs.db
 # Allow today's lock files to be committed for Day 22 integrated workflow
 !day_22/live/staging/.terraform.lock.hcl
 !day_22/modules/services/webserver-cluster/.terraform.lock.hcl
+
+# Allow today's lock files to be committed for Day 25 static website
+!day_25/day25-static-website/bootstrap/.terraform.lock.hcl
+!day_25/day25-static-website/envs/dev/.terraform.lock.hcl
