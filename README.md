@@ -34,7 +34,8 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 | Day 22 | Putting It All Together: Completing the Book and Reflecting on the Journey | ✅ Completed | [Read](#day-22) |
 | Day 23 | Exam Preparation — Brushing Up on Key Terraform Concepts | ✅ Completed | [Read](#day-23) |
 | Day 24 | Final Exam Review and Certification Focus | ✅ Completed | [Read](#day-24) |
-| Day 25 | Exam Practice and Weak-Area Review | 🚧 In Progress | [Add link](#day-25) |
+| Day 25 | Deploy a Static Website on AWS S3 with Terraform | ✅ Completed | [Read](#day-25) |
+| Day 26 | Static Website Deployment Review and Next Improvements | 🚧 In Progress | [Add link](#day-26) |
 
 ---
 
@@ -113,7 +114,7 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 👉 [Final Exam Review and Certification Focus](https://dev.to/mary_mutua_9d55b3c269f343/my-final-preparation-for-the-terraform-associate-exam-1mmd)
 
 ### Day 25
-👉 [Add link](#)
+👉 [Deploy a Static Website on AWS S3 with Terraform](#)
 
 ## 🧠 What I’m Learning
 
@@ -173,6 +174,9 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 - Preparing for the Terraform Associate exam with focused weak-area drills  
 - Practicing high-weight CLI, state, workflow, and HCP Terraform exam scenarios  
 - Building exam-day timing, elimination, and flashcard recall strategies  
+- Deploying static websites with S3 website hosting and CloudFront  
+- Designing cleanup-safe dev resources with `force_destroy` while protecting production  
+- Using environment-specific root modules with reusable Terraform modules  
 - Debugging real-world cloud issues  
 - Writing clean, reusable Terraform code  
 
