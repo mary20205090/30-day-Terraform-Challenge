@@ -35,7 +35,7 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 | Day 23 | Exam Preparation — Brushing Up on Key Terraform Concepts | ✅ Completed | [Read](#day-23) |
 | Day 24 | Final Exam Review and Certification Focus | ✅ Completed | [Read](#day-24) |
 | Day 25 | Deploy a Static Website on AWS S3 with Terraform | ✅ Completed | [Read](#day-25) |
-| Day 26 | Static Website Deployment Review and Next Improvements | 🚧 In Progress | [Add link](#day-26) |
+| Day 26 | Static Website Deployment Review and Next Improvements | 🚧 In Progress |
 
 ---
 
@@ -114,7 +114,7 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 👉 [Final Exam Review and Certification Focus](https://dev.to/mary_mutua_9d55b3c269f343/my-final-preparation-for-the-terraform-associate-exam-1mmd)
 
 ### Day 25
-👉 [Deploy a Static Website on AWS S3 with Terraform](#)
+👉 [Deploy a Static Website on AWS S3 with Terraform](https://dev.to/mary_mutua_9d55b3c269f343/deploying-a-static-website-on-aws-s3-with-terraform-a-beginners-guide-ki)
 
 ## 🧠 What I’m Learning
 
