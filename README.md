@@ -33,7 +33,7 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 | Day 21 | Workflow for Deploying Infrastructure Code | ✅ Completed | [Read](#day-21) |
 | Day 22 | Putting It All Together: Completing the Book and Reflecting on the Journey | ✅ Completed | [Read](#day-22) |
 | Day 23 | Exam Preparation — Brushing Up on Key Terraform Concepts | ✅ Completed | [Read](#day-23) |
-| Day 24 | Final Exam Review and Certification Focus | 🚧 In Progress |
+| Day 24 | Final Exam Review and Certification Focus | 🚧 In Progress | [Add link](#day-24) |
 
 ---
 
@@ -108,6 +108,9 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 ### Day 23
 👉 [Preparing for the Terraform Associate Exam — Key Resources and Tips](https://dev.to/mary_mutua_9d55b3c269f343/preparing-for-the-terraform-associate-exam-key-resources-and-tips-1lk)
 
+### Day 24
+👉 [Final Exam Review and Certification Focus](#)
+
 ## 🧠 What I’m Learning
 
 - Terraform fundamentals (provider & resource blocks)  
@@ -163,6 +166,9 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 - Combining application and infrastructure workflows into one delivery pipeline  
 - Promoting immutable, versioned Terraform artifacts across environments  
 - Treating boring, repeatable deployments as the goal of mature infrastructure engineering  
+- Preparing for the Terraform Associate exam with focused weak-area drills  
+- Practicing high-weight CLI, state, workflow, and HCP Terraform exam scenarios  
+- Building exam-day timing, elimination, and flashcard recall strategies  
 - Debugging real-world cloud issues  
 - Writing clean, reusable Terraform code  
 
