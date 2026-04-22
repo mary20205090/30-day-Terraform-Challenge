@@ -35,7 +35,7 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 | Day 23 | Exam Preparation — Brushing Up on Key Terraform Concepts | ✅ Completed | [Read](#day-23) |
 | Day 24 | Final Exam Review and Certification Focus | ✅ Completed | [Read](#day-24) |
 | Day 25 | Deploy a Static Website on AWS S3 with Terraform | ✅ Completed | [Read](#day-25) |
-| Day 26 | Static Website Deployment Review and Next Improvements | 🚧 In Progress |
+| Day 26 | Build a Scalable Web Application with Auto Scaling on AWS | 🚧 In Progress | [Read](#day-26) |
 
 ---
 
@@ -116,6 +116,9 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 ### Day 25
 👉 [Deploy a Static Website on AWS S3 with Terraform](https://dev.to/mary_mutua_9d55b3c269f343/deploying-a-static-website-on-aws-s3-with-terraform-a-beginners-guide-ki)
 
+### Day 26
+👉 [Build a Scalable Web Application with Auto Scaling on AWS](day_26/README.md)
+
 ## 🧠 What I’m Learning
 
 - Terraform fundamentals (provider & resource blocks)  
@@ -177,6 +180,9 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 - Deploying static websites with S3 website hosting and CloudFront  
 - Designing cleanup-safe dev resources with `force_destroy` while protecting production  
 - Using environment-specific root modules with reusable Terraform modules  
+- Running post-deployment reviews to separate Terraform issues from AWS account-level blockers
+- Planning production improvements for static websites, including private origins, custom domains, content deployment, logging, and cleanup workflows
+- Building scalable web application tiers with Launch Templates, ALBs, ASGs, CloudWatch alarms, and scaling policies
 - Debugging real-world cloud issues  
 - Writing clean, reusable Terraform code  
 
