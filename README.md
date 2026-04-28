@@ -36,7 +36,7 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 | Day 24 | Final Exam Review and Certification Focus | ✅ Completed | [Read](#day-24) |
 | Day 25 | Deploy a Static Website on AWS S3 with Terraform | ✅ Completed | [Read](#day-25) |
 | Day 26 | Build a Scalable Web Application with Auto Scaling on AWS | ✅ Completed | [Read](#day-26) |
-| Day 27 | 3-Tier Multi-Region High Availability Infrastructure with AWS and Terraform | ✅ Completed | Pending |
+| Day 27 | 3-Tier Multi-Region High Availability Infrastructure with AWS and Terraform | ✅ Completed | [Read](#day-27) |
 | Day 28 | To Be Confirmed | 🚧 In Progress |  |
 
 ---
@@ -122,7 +122,7 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 👉 [Build a Scalable Web Application with Auto Scaling on AWS](https://dev.to/mary_mutua_9d55b3c269f343/building-a-scalable-web-application-on-aws-with-ec2-alb-and-auto-scaling-using-terraform-5162)
 
 ### Day 27
-👉 Blog link coming soon
+👉 [Building a 3-Tier Multi-Region High Availability Architecture with Terraform](https://dev.to/mary_mutua_9d55b3c269f343/building-a-3-tier-multi-region-high-availability-architecture-with-terraform-5bio)
 
 
 ## 🧠 What I’m Learning
