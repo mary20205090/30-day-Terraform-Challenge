@@ -1,4 +1,5 @@
 terraform {
+  // Remote state keeps state out of Git; DynamoDB locking prevents concurrent applies.
   backend "s3" {
     bucket         = "mary-mutua-day26-tf-state-use1-718417034043-20260423"
     key            = "day26/scalable-web-app/dev/terraform.tfstate"
