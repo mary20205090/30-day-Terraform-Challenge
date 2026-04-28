@@ -16,6 +16,7 @@ The goal is to model a production-style stack with:
 - `modules/asg` owns the launch template, instance security group, scaling policies, and CPU alarms.
 - `modules/rds` creates the primary Multi-AZ database and the secondary read replica.
 - `modules/route53` models DNS failover from primary to secondary.
+- Route53 failover is optional for this lab if you do not own a domain yet.
 
 ## Important Fixes Applied
 
@@ -36,9 +37,8 @@ Two practical issues from the pasted task were corrected:
    - `day_27/day27-multi-region-ha/envs/prod/backend.tf`
 2. Replace placeholders in `envs/prod/terraform.tfvars`:
    - AMI IDs
-   - hosted zone ID
-   - domain name
    - DB password
+   - hosted zone ID and domain name only if `create_route53_failover = true`
 3. Run from `envs/prod`:
 
 ```bash
@@ -47,6 +47,12 @@ terraform validate
 terraform plan -out=day27.tfplan
 terraform apply day27.tfplan
 ```
+
+If `create_route53_failover = false`, verify the lab with:
+
+- `primary_alb_dns_name`
+- `secondary_alb_dns_name`
+- `application_url` (this falls back to the primary ALB URL)
 
 ## Cost and Risk Reminder
 

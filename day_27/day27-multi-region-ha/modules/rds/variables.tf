@@ -21,6 +21,18 @@ variable "allocated_storage" {
   default     = 20
 }
 
+variable "backup_retention_period" {
+  description = "Automated backup retention for the primary DB; must stay > 0 when creating replicas"
+  type        = number
+  default     = 1
+}
+
+variable "kms_key_id" {
+  description = "Optional KMS key ARN or alias for encrypted RDS; cross-region replicas need a destination-region key"
+  type        = string
+  default     = null
+}
+
 variable "db_name" {
   description = "Name of the initial database"
   type        = string
