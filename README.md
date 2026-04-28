@@ -36,7 +36,8 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 | Day 24 | Final Exam Review and Certification Focus | ✅ Completed | [Read](#day-24) |
 | Day 25 | Deploy a Static Website on AWS S3 with Terraform | ✅ Completed | [Read](#day-25) |
 | Day 26 | Build a Scalable Web Application with Auto Scaling on AWS | ✅ Completed | [Read](#day-26) |
-| Day 27 | To Be Confirmed | 🚧 In Progress |  |
+| Day 27 | 3-Tier Multi-Region High Availability Infrastructure with AWS and Terraform | ✅ Completed | Pending |
+| Day 28 | To Be Confirmed | 🚧 In Progress |  |
 
 ---
 
@@ -120,6 +121,9 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 ### Day 26
 👉 [Build a Scalable Web Application with Auto Scaling on AWS](https://dev.to/mary_mutua_9d55b3c269f343/building-a-scalable-web-application-on-aws-with-ec2-alb-and-auto-scaling-using-terraform-5162)
 
+### Day 27
+👉 Blog link coming soon
+
 
 ## 🧠 What I’m Learning
 
@@ -185,6 +189,10 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 - Running post-deployment reviews to separate Terraform issues from AWS account-level blockers
 - Planning production improvements for static websites, including private origins, custom domains, content deployment, logging, and cleanup workflows
 - Building scalable web application tiers with Launch Templates, ALBs, ASGs, CloudWatch alarms, and scaling policies
+- Modeling multi-region Terraform stacks with provider aliases and region-specific module wiring
+- Recovering from partial applies, stale locks, naming limits, and cloud-service guardrails during multi-region deployment
+- Creating encrypted cross-region RDS replicas with the correct destination-region KMS key handling
+- Verifying destroy order for remote-state-backed multi-region environments and cleaning up bootstrap backends last
 - Debugging real-world cloud issues  
 - Writing clean, reusable Terraform code  
 
