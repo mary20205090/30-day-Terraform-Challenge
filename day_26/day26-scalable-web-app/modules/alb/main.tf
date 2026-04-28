@@ -1,4 +1,5 @@
 locals {
+  // Keep ALB resources tagged consistently with the rest of the stack.
   common_tags = merge(var.tags, {
     Environment = var.environment
     ManagedBy   = "terraform"
@@ -47,6 +48,7 @@ resource "aws_lb" "web" {
 }
 
 resource "aws_lb_target_group" "web" {
+  // The ASG registers instances here; the ALB forwards only to healthy targets.
   name     = "${var.name}-tg-${var.environment}"
   port     = 80
   protocol = "HTTP"
@@ -67,6 +69,7 @@ resource "aws_lb_target_group" "web" {
 }
 
 resource "aws_lb_listener" "http" {
+  // Public HTTP traffic enters here and is forwarded to the target group.
   load_balancer_arn = aws_lb.web.arn
   port              = 80
   protocol          = "HTTP"
@@ -78,6 +81,7 @@ resource "aws_lb_listener" "http" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "high_request_count" {
+  // Observability alarm only; CPU alarms in the ASG module perform scaling actions.
   alarm_name          = "${var.name}-high-requests-${var.environment}"
   comparison_operator = "GreaterThanOrEqualToThreshold"
   evaluation_periods  = 1

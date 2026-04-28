@@ -1,4 +1,5 @@
 locals {
+  // Propagated ASG tags help identify instances created by Terraform.
   common_tags = merge(var.tags, {
     Environment = var.environment
     ManagedBy   = "terraform"
@@ -7,6 +8,7 @@ locals {
 }
 
 resource "aws_autoscaling_group" "web" {
+  // Runtime capacity lives here: launch template instances are attached to the ALB target group.
   name                = "${var.name}-asg-${var.environment}"
   min_size            = var.min_size
   max_size            = var.max_size
@@ -14,6 +16,7 @@ resource "aws_autoscaling_group" "web" {
   vpc_zone_identifier = var.subnet_ids
   target_group_arns   = var.target_group_arns
 
+  // ELB health checks ensure instances count as healthy only after the ALB can reach the app.
   health_check_type         = "ELB"
   health_check_grace_period = 300
   force_delete              = var.environment != "production"
@@ -55,6 +58,7 @@ resource "aws_autoscaling_group" "web" {
 }
 
 resource "aws_autoscaling_policy" "scale_out" {
+  // Policies describe what to do; CloudWatch alarms decide when to call them.
   name                   = "${var.name}-scale-out-${var.environment}"
   scaling_adjustment     = 1
   adjustment_type        = "ChangeInCapacity"
@@ -71,6 +75,7 @@ resource "aws_autoscaling_policy" "scale_in" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "cpu_high" {
+  // High CPU closes the scale-out loop: alarm -> policy -> one extra instance.
   alarm_name          = "${var.name}-cpu-high-${var.environment}"
   comparison_operator = "GreaterThanOrEqualToThreshold"
   evaluation_periods  = 2
@@ -91,6 +96,7 @@ resource "aws_cloudwatch_metric_alarm" "cpu_high" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "cpu_low" {
+  // Low CPU closes the scale-in loop: alarm -> policy -> remove one instance after cooldown.
   alarm_name          = "${var.name}-cpu-low-${var.environment}"
   comparison_operator = "LessThanOrEqualToThreshold"
   evaluation_periods  = 2
@@ -111,6 +117,7 @@ resource "aws_cloudwatch_metric_alarm" "cpu_low" {
 }
 
 resource "aws_cloudwatch_dashboard" "web" {
+  // Dashboard keeps the two key signals together: CPU and in-service instance count.
   count = var.enable_dashboard ? 1 : 0
 
   dashboard_name = "${var.name}-asg-${var.environment}"

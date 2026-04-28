@@ -1,7 +1,9 @@
+// Default to the account VPC for the lab, but allow tfvars to override it.
 data "aws_vpc" "default" {
   default = true
 }
 
+// Pull the latest Amazon Linux 2023 AMI so the launch template stays portable.
 data "aws_ami" "amazon_linux_2023" {
   most_recent = true
   owners      = ["amazon"]
@@ -35,6 +37,7 @@ data "aws_ec2_instance_type_offerings" "selected" {
   location_type = "availability-zone"
 }
 
+// Some AZs do not support every instance type, so only use compatible subnets.
 data "aws_subnets" "selected" {
   filter {
     name   = "vpc-id"
@@ -58,6 +61,7 @@ locals {
   }
 }
 
+// The ALB is the public entry point and owns listener/target group wiring.
 module "alb" {
   source = "../../modules/alb"
 
@@ -69,6 +73,7 @@ module "alb" {
   tags                   = local.common_tags
 }
 
+// The EC2 module produces the launch template consumed by the ASG.
 module "ec2" {
   source = "../../modules/ec2"
 
@@ -82,6 +87,7 @@ module "ec2" {
   tags                            = local.common_tags
 }
 
+// The ASG closes the loop: launch EC2 instances and register them with the ALB target group.
 module "asg" {
   source = "../../modules/asg"
 

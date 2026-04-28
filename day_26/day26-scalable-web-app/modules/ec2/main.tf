@@ -1,4 +1,5 @@
 locals {
+  // Required tags make Day 26 resources easy to audit and clean up.
   common_tags = merge(var.tags, {
     Environment = var.environment
     ManagedBy   = "terraform"
@@ -21,6 +22,7 @@ resource "aws_security_group" "instance" {
 }
 
 resource "aws_vpc_security_group_ingress_rule" "http_from_alb" {
+  // for_each keys must be known during plan; the SG IDs can remain apply-time values.
   for_each = {
     for index, security_group_id in var.allowed_http_security_group_ids :
     tostring(index) => security_group_id
@@ -47,6 +49,7 @@ resource "aws_launch_template" "web" {
 
   vpc_security_group_ids = [aws_security_group.instance.id]
 
+  // Bootstrap a tiny web app so ALB health checks and browser verification have an endpoint.
   user_data = base64encode(<<-USERDATA
     #!/bin/bash
     set -euo pipefail
@@ -75,11 +78,13 @@ resource "aws_launch_template" "web" {
   USERDATA
   )
 
+  // Require IMDSv2 for safer instance metadata access.
   metadata_options {
     http_endpoint = "enabled"
     http_tokens   = "required"
   }
 
+  // Detailed monitoring gives CloudWatch fresher CPU data for scaling decisions.
   monitoring {
     enabled = true
   }
