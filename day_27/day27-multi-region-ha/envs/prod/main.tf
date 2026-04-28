@@ -56,17 +56,18 @@ module "rds_primary" {
   source    = "../../modules/rds"
   providers = { aws = aws.primary }
 
-  identifier            = "${var.app_name}-db-primary"
-  db_name               = var.db_name
-  db_username           = var.db_username
-  db_password           = var.db_password
-  subnet_ids            = module.vpc_primary.private_subnet_ids
-  vpc_id                = module.vpc_primary.vpc_id
-  app_security_group_id = module.asg_primary.instance_security_group_id
-  multi_az              = true
-  environment           = var.environment
-  region                = "us-east-1"
-  tags                  = local.common_tags
+  identifier              = "${var.app_name}-db-primary"
+  db_name                 = var.db_name
+  db_username             = var.db_username
+  db_password             = var.db_password
+  backup_retention_period = 1
+  subnet_ids              = module.vpc_primary.private_subnet_ids
+  vpc_id                  = module.vpc_primary.vpc_id
+  app_security_group_id   = module.asg_primary.instance_security_group_id
+  multi_az                = true
+  environment             = var.environment
+  region                  = "us-east-1"
+  tags                    = local.common_tags
 }
 
 # Secondary region mirrors the app tier and hosts the cross-region read replica.
@@ -122,6 +123,7 @@ module "rds_replica" {
   identifier            = "${var.app_name}-db-replica"
   is_replica            = true
   replicate_source_db   = module.rds_primary.db_instance_arn
+  kms_key_id            = "alias/aws/rds"
   subnet_ids            = module.vpc_secondary.private_subnet_ids
   vpc_id                = module.vpc_secondary.vpc_id
   app_security_group_id = module.asg_secondary.instance_security_group_id
@@ -135,8 +137,10 @@ module "rds_replica" {
   db_password = ""
 }
 
-# Route53 closes the loop by failing DNS over from primary to secondary.
+# Route53 is optional for the lab. If you do not own a hosted zone yet, we can
+# still verify the stack through the ALB DNS names from each region.
 module "route53" {
+  count     = var.create_route53_failover ? 1 : 0
   source    = "../../modules/route53"
   providers = { aws = aws.primary }
 

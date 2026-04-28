@@ -19,6 +19,11 @@ output "replica_db_endpoint" {
 }
 
 output "application_url" {
-  value       = module.route53.application_url
-  description = "Application URL behind Route53 failover"
+  value       = var.create_route53_failover ? module.route53[0].application_url : "http://${module.alb_primary.alb_dns_name}"
+  description = "Route53 failover URL when enabled, otherwise the primary ALB URL for lab verification"
+}
+
+output "route53_failover_enabled" {
+  value       = var.create_route53_failover
+  description = "Whether Route53 failover records were created for this deployment"
 }

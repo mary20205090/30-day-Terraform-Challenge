@@ -15,6 +15,24 @@ locals {
   })
 }
 
+data "aws_kms_key" "rds_default" {
+  count  = var.is_replica && var.kms_key_id == null ? 1 : 0
+  key_id = "alias/aws/rds"
+}
+
+data "aws_kms_key" "replica_alias" {
+  count  = var.is_replica && var.kms_key_id != null && startswith(var.kms_key_id, "alias/") ? 1 : 0
+  key_id = var.kms_key_id
+}
+
+locals {
+  replica_kms_key_id = !var.is_replica ? var.kms_key_id : (
+    var.kms_key_id == null ? try(data.aws_kms_key.rds_default[0].arn, null) : (
+      startswith(var.kms_key_id, "alias/") ? try(data.aws_kms_key.replica_alias[0].arn, var.kms_key_id) : var.kms_key_id
+    )
+  )
+}
+
 resource "aws_security_group" "rds" {
   name        = "rds-sg-${var.environment}-${var.region}"
   description = "Allow MySQL inbound from application tier only"
@@ -55,9 +73,13 @@ resource "aws_db_instance" "main" {
   db_subnet_group_name   = aws_db_subnet_group.main.name
   vpc_security_group_ids = [aws_security_group.rds.id]
 
-  multi_az                = var.is_replica ? false : var.multi_az
-  replicate_source_db     = var.is_replica ? var.replicate_source_db : null
-  backup_retention_period = var.is_replica ? 0 : 7
+  multi_az            = var.is_replica ? false : var.multi_az
+  replicate_source_db = var.is_replica ? var.replicate_source_db : null
+
+  # Keep backups enabled for the primary so the cross-region replica can exist,
+  # but default to a low retention period that works better for lab-style accounts.
+  backup_retention_period = var.is_replica ? 0 : var.backup_retention_period
+  kms_key_id              = local.replica_kms_key_id
   skip_final_snapshot     = true
   storage_encrypted       = true
   publicly_accessible     = false

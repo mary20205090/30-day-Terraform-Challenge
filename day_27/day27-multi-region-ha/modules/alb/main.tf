@@ -7,6 +7,10 @@ terraform {
 }
 
 locals {
+  # Shorten region names (for example us-east-1 -> ue1) so ALB/TG names stay
+  # within AWS length limits in multi-region environments.
+  short_region = join("", [for part in split("-", var.region) : substr(part, 0, 1)])
+
   common_tags = merge(var.tags, {
     Environment = var.environment
     ManagedBy   = "terraform"
@@ -45,7 +49,7 @@ resource "aws_security_group" "alb" {
 }
 
 resource "aws_lb" "web" {
-  name               = "${var.name}-alb-${var.region}"
+  name               = substr("${var.name}-alb-${local.short_region}", 0, 32)
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.alb.id]
@@ -54,7 +58,7 @@ resource "aws_lb" "web" {
 }
 
 resource "aws_lb_target_group" "web" {
-  name     = "${var.name}-tg-${var.region}"
+  name     = substr("${var.name}-tg-${local.short_region}", 0, 32)
   port     = 80
   protocol = "HTTP"
   vpc_id   = var.vpc_id

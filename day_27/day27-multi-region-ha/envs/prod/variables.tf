@@ -111,12 +111,20 @@ variable "db_password" {
   sensitive   = true
 }
 
+variable "create_route53_failover" {
+  description = "Set to true only if you own a Route53 hosted zone and want DNS failover records created"
+  type        = bool
+  default     = false
+}
+
 variable "hosted_zone_id" {
   description = "Route53 hosted zone ID"
   type        = string
+  default     = null
 }
 
 variable "domain_name" {
   description = "Failover DNS name"
   type        = string
+  default     = null
 }
