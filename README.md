@@ -37,7 +37,8 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 | Day 25 | Deploy a Static Website on AWS S3 with Terraform | ✅ Completed | [Read](#day-25) |
 | Day 26 | Build a Scalable Web Application with Auto Scaling on AWS | ✅ Completed | [Read](#day-26) |
 | Day 27 | 3-Tier Multi-Region High Availability Infrastructure with AWS and Terraform | ✅ Completed | [Read](#day-27) |
-| Day 28 | To Be Confirmed | 🚧 In Progress |  |
+| Day 28 | Exam Preparation - Practice Exams 1 & 2 | ✅ Completed |  |
+| Day 29 | To Be Confirmed | 🚧 In Progress |  |
 
 ---
 
