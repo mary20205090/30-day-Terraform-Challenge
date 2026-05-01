@@ -38,7 +38,8 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 | Day 26 | Build a Scalable Web Application with Auto Scaling on AWS | ✅ Completed | [Read](#day-26) |
 | Day 27 | 3-Tier Multi-Region High Availability Infrastructure with AWS and Terraform | ✅ Completed | [Read](#day-27) |
 | Day 28 | Exam Preparation - Practice Exams 1 & 2 | ✅ Completed | [Read](#day-28) |
-| Day 29 | To Be Confirmed | 🚧 In Progress |  |
+| Day 29 | Exam Preparation - Practice Exams 3 & 4 | ✅ Completed | [Read](#day-29) |
+| Day 30 | Final Review and Exam Readiness | 🚧 In Progress |  |
 
 ---
 
@@ -128,6 +129,9 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 ### Day 28
 👉 [How I Prepared for the Terraform Associate Exam with Practice Questions](https://dev.to/mary_mutua_9d55b3c269f343/how-i-prepared-for-the-terraform-associate-exam-with-practice-questions-1ipp)
 
+### Day 29
+👉 Blog coming soon
+
 
 ## 🧠 What I’m Learning
 
@@ -197,6 +201,9 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 - Recovering from partial applies, stale locks, naming limits, and cloud-service guardrails during multi-region deployment
 - Creating encrypted cross-region RDS replicas with the correct destination-region KMS key handling
 - Verifying destroy order for remote-state-backed multi-region environments and cleaning up bootstrap backends last
+- Using multiple practice exams as trend data instead of treating each score in isolation
+- Identifying persistent weak areas across Terraform Associate practice attempts
+- Reinforcing variable validation, variable precedence, provider aliases, and state refactor commands before exam day
 - Debugging real-world cloud issues  
 - Writing clean, reusable Terraform code  
 
