@@ -133,7 +133,7 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 👉 [Fine-tuning My Terraform Exam Prep with Practice Exams](https://dev.to/mary_mutua_9d55b3c269f343/fine-tuning-my-terraform-exam-prep-with-practice-exams-j49)
 
 ### Day 30
-👉 Blog coming soon
+👉 [Ready for Terraform Certification: My Final Exam Prep and 30-Day Reflection](https://dev.to/mary_mutua_9d55b3c269f343/ready-for-terraform-certification-my-final-exam-prep-and-30-day-reflection-4723)
 
 
 ## 🧠 What I’m Learning
