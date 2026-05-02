@@ -38,7 +38,8 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 | Day 26 | Build a Scalable Web Application with Auto Scaling on AWS | ✅ Completed | [Read](#day-26) |
 | Day 27 | 3-Tier Multi-Region High Availability Infrastructure with AWS and Terraform | ✅ Completed | [Read](#day-27) |
 | Day 28 | Exam Preparation - Practice Exams 1 & 2 | ✅ Completed | [Read](#day-28) |
-| Day 29 | To Be Confirmed | 🚧 In Progress |  |
+| Day 29 | Exam Preparation - Practice Exams 3 & 4 | ✅ Completed | [Read](#day-29) |
+| Day 30 | Final Practice Exam, Fill-in-the-Blank, and Challenge Complete | ✅ Completed | [Read](#day-30) |
 
 ---
 
@@ -128,6 +129,12 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 ### Day 28
 👉 [How I Prepared for the Terraform Associate Exam with Practice Questions](https://dev.to/mary_mutua_9d55b3c269f343/how-i-prepared-for-the-terraform-associate-exam-with-practice-questions-1ipp)
 
+### Day 29
+👉 [Fine-tuning My Terraform Exam Prep with Practice Exams](https://dev.to/mary_mutua_9d55b3c269f343/fine-tuning-my-terraform-exam-prep-with-practice-exams-j49)
+
+### Day 30
+👉 [Ready for Terraform Certification: My Final Exam Prep and 30-Day Reflection](https://dev.to/mary_mutua_9d55b3c269f343/ready-for-terraform-certification-my-final-exam-prep-and-30-day-reflection-4723)
+
 
 ## 🧠 What I’m Learning
 
@@ -197,6 +204,12 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 - Recovering from partial applies, stale locks, naming limits, and cloud-service guardrails during multi-region deployment
 - Creating encrypted cross-region RDS replicas with the correct destination-region KMS key handling
 - Verifying destroy order for remote-state-backed multi-region environments and cleaning up bootstrap backends last
+- Using multiple practice exams as trend data instead of treating each score in isolation
+- Identifying persistent weak areas across Terraform Associate practice attempts
+- Reinforcing variable validation, variable precedence, provider aliases, and state refactor commands before exam day
+- Completing a final Terraform Associate simulated exam with a perfect score
+- Using fill-in-the-blank recall to sharpen exact Terraform command and argument syntax
+- Confirming final exam readiness through cold conceptual review and reflection
 - Debugging real-world cloud issues  
 - Writing clean, reusable Terraform code  
 
