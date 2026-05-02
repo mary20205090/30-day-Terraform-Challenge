@@ -39,7 +39,7 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 | Day 27 | 3-Tier Multi-Region High Availability Infrastructure with AWS and Terraform | ✅ Completed | [Read](#day-27) |
 | Day 28 | Exam Preparation - Practice Exams 1 & 2 | ✅ Completed | [Read](#day-28) |
 | Day 29 | Exam Preparation - Practice Exams 3 & 4 | ✅ Completed | [Read](#day-29) |
-| Day 30 | Final Review and Exam Readiness | 🚧 In Progress |  |
+| Day 30 | Final Practice Exam, Fill-in-the-Blank, and Challenge Complete | ✅ Completed | [Read](#day-30) |
 
 ---
 
@@ -132,6 +132,9 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 ### Day 29
 👉 [Fine-tuning My Terraform Exam Prep with Practice Exams](https://dev.to/mary_mutua_9d55b3c269f343/fine-tuning-my-terraform-exam-prep-with-practice-exams-j49)
 
+### Day 30
+👉 Blog coming soon
+
 
 ## 🧠 What I’m Learning
 
@@ -204,6 +207,9 @@ This challenge is focused on learning **Infrastructure as Code (IaC)** by doing 
 - Using multiple practice exams as trend data instead of treating each score in isolation
 - Identifying persistent weak areas across Terraform Associate practice attempts
 - Reinforcing variable validation, variable precedence, provider aliases, and state refactor commands before exam day
+- Completing a final Terraform Associate simulated exam with a perfect score
+- Using fill-in-the-blank recall to sharpen exact Terraform command and argument syntax
+- Confirming final exam readiness through cold conceptual review and reflection
 - Debugging real-world cloud issues  
 - Writing clean, reusable Terraform code  
 
